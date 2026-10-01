@@ -1,0 +1,3319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Wolf Legal Corp | Soluciones Legales Estratégicas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" id="favicon" href="assets/logo.png">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #132240;
+            --navy-mid: #1a2d50;
+            --gold: #c9a84c;
+            --gold-light: #d4b96a;
+            --gold-dark: #a8872e;
+            --white: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-500: #6c757d;
+            --gray-700: #495057;
+            --gray-900: #212529;
+            --shadow: 0 10px 40px rgba(0,0,0,0.12);
+            --shadow-lg: 0 25px 60px rgba(0,0,0,0.15);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-900);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ===== PRELOADER ===== */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content {
+            text-align: center;
+        }
+
+        .preloader-wolf {
+            font-size: 4rem;
+            color: var(--gold);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .preloader-text {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            letter-spacing: 4px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 22, 40, 0.97);
+            backdrop-filter: blur(20px);
+            padding: 0.6rem 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            width: 45px;
+            height: 45px;
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-logo-text .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .nav-logo-text .sub {
+            font-size: 0.6rem;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+            background: rgba(201, 168, 76, 0.1);
+        }
+
+        .nav-cta {
+            background: var(--gold) !important;
+            color: var(--navy) !important;
+            font-weight: 600 !important;
+            padding: 0.6rem 1.5rem !important;
+            border-radius: 8px !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-light) !important;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--navy-mid) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900"><defs><linearGradient id="g" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%230a1628;stop-opacity:0.9"/><stop offset="100%25" style="stop-color:%231a2d50;stop-opacity:0.7"/></linearGradient></defs><rect fill="url(%23g)" width="1440" height="900"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-particle linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+
+        .hero-geometric {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            opacity: 0.05;
+        }
+
+        .hero-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            padding-top: 5rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(201, 168, 76, 0.15);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge span {
+            color: var(--gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-badge i {
+            color: var(--gold);
+            font-size: 0.7rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero h1 .highlight {
+            color: var(--gold);
+            position: relative;
+        }
+
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            opacity: 0.4;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 520px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201, 168, 76, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: 2px solid rgba(255,255,255,0.25);
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(201, 168, 76, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-visual {
+            position: relative;
+            padding-top: 5rem;
+            animation: fadeInRight 1s ease 0.5s both;
+        }
+
+        .hero-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--navy);
+        }
+
+        .hero-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--white);
+        }
+
+        .hero-card-subtitle {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .hero-services-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .hero-service-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.8rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .hero-service-item:hover {
+            background: rgba(201, 168, 76, 0.15);
+            transform: translateX(5px);
+        }
+
+        .hero-service-item i {
+            color: var(--gold);
+            font-size: 0.85rem;
+        }
+
+        .hero-service-item span {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .hero-floating-card {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 15px;
+            padding: 1.2rem 1.5rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-floating-card.card-1 {
+            bottom: -20px;
+            left: -30px;
+        }
+
+        .hero-floating-card.card-2 {
+            top: 20px;
+            right: -20px;
+            animation-delay: -3s;
+        }
+
+        .floating-card-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .floating-card-text {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ===== TRUST BAR ===== */
+        .trust-bar {
+            background: var(--gray-100);
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .trust-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .trust-item i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 7rem 0;
+            background: var(--white);
+        }
+
+        .section-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gold-dark);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-tag::before,
+        .section-tag::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image-content {
+            text-align: center;
+            color: var(--white);
+            padding: 3rem;
+        }
+
+        .about-image-content .wolf-icon {
+            font-size: 5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-image-content p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        .about-experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-experience-badge .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .about-experience-badge .text {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .about-content p {
+            color: var(--gray-700);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: var(--gray-100);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .about-feature:hover {
+            background: rgba(201, 168, 76, 0.1);
+            transform: translateX(5px);
+        }
+
+        .about-feature i {
+            color: var(--gold);
+            font-size: 1.1rem;
+            width: 35px;
+            height: 35px;
+            background: rgba(201, 168, 76, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .about-feature span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 7rem 0;
+            background: var(--gray-100);
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at top right, rgba(201, 168, 76, 0.05) 0%, transparent 50%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(201, 168, 76, 0.3);
+        }
+
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+        }
+
+        .service-icon i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon i {
+            color: var(--navy);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--navy);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card > p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-list {
+            list-style: none;
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            font-size: 0.88rem;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        .service-list li i {
+            color: var(--gold);
+            font-size: 0.7rem;
+            margin-top: 0.35rem;
+            flex-shrink: 0;
+        }
+
+        .service-card .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gold-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .service-card .service-link:hover {
+            gap: 0.8rem;
+            color: var(--navy);
+        }
+
+        /* ===== DETAILED SERVICES ===== */
+        .detailed-services {
+            padding: 7rem 0;
+            background: var(--white);
+        }
+
+        .detail-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .detail-tab {
+            padding: 0.8rem 1.8rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 50px;
+            background: var(--white);
+            color: var(--gray-700);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .detail-tab:hover,
+        .detail-tab.active {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: var(--white);
+        }
+
+        .detail-content {
+            display: none;
+        }
+
+        .detail-content.active {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .detail-item {
+            background: var(--gray-100);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .detail-item:hover {
+            background: var(--white);
+            border-color: var(--gold);
+            box-shadow: var(--shadow);
+            transform: translateY(-5px);
+        }
+
+        .detail-item-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .detail-item-icon i {
+            color: var(--navy);
+            font-size: 1.2rem;
+        }
+
+        .detail-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-item p {
+            color: var(--gray-500);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-us {
+            padding: 7rem 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-us::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .why-us .section-tag {
+            color: var(--gold);
+        }
+
+        .why-us .section-title {
+            color: var(--white);
+        }
+
+        .why-us .section-subtitle {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-8px);
+            border-color: rgba(201, 168, 76, 0.3);
+        }
+
+        .why-card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .why-card-icon i {
+            font-size: 1.5rem;
+            color: var(--navy);
+        }
+
+        .why-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 0.8rem;
+        }
+
+        .why-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ===== PROCESS SECTION ===== */
+        .process {
+            padding: 7rem 0;
+            background: var(--white);
+        }
+
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: 12.5%;
+            width: 75%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-number {
+            width: 90px;
+            height: 90px;
+            background: var(--white);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .process-step:hover .process-number {
+            background: var(--gold);
+            color: var(--navy);
+            transform: scale(1.1);
+        }
+
+        .process-step h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            color: var(--gray-500);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 7rem 0;
+            background: var(--gray-100);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-quote {
+            font-size: 3rem;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--gray-700);
+            font-size: 1rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== TEAM SECTION ===== */
+        .team {
+            padding: 7rem 0;
+            background: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--gray-100);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-image i {
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.5;
+        }
+
+        .team-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .team-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 0.3rem;
+        }
+
+        .team-info .role {
+            color: var(--gold-dark);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .team-info p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            color: rgba(10, 22, 40, 0.7);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-dark {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: var(--navy);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .btn-dark:hover {
+            background: var(--navy-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline-dark {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: transparent;
+            color: var(--navy);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: 2px solid var(--navy);
+        }
+
+        .btn-outline-dark:hover {
+            background: var(--navy);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 7rem 0;
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info > p {
+            color: var(--gray-500);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: var(--gray-100);
+            border-radius: 14px;
+            transition: var(--transition);
+        }
+
+        .contact-method:hover {
+            background: rgba(201, 168, 76, 0.1);
+            transform: translateX(5px);
+        }
+
+        .contact-method-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--navy);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-method-icon i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .contact-method-text .label {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-method-text .value {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1rem;
+        }
+
+        .contact-method-text .value a {
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .contact-form-wrapper {
+            background: var(--gray-100);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+
+        .contact-form-wrapper h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+        }
+
+        .form-submit:hover {
+            background: var(--gold);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        /* ===== MAP SECTION ===== */
+        .map-section {
+            background: var(--navy);
+            padding: 3rem 0;
+        }
+
+        .map-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .map-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .map-info p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .map-details {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .map-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        .map-detail i {
+            color: var(--gold);
+            width: 20px;
+        }
+
+        .map-embed {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+            background: var(--navy-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .map-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy);
+            padding: 4rem 0 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .footer-brand .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand .footer-logo-icon {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .footer-brand .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: grid;
+            gap: 0.7rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            font-size: 0.7rem;
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 1.5rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+        }
+
+        .whatsapp-btn {
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+            animation: whatsapp-pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        @keyframes whatsapp-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 45px;
+            height: 45px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            border: 2px solid var(--gold);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--gold);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                padding-top: 7rem;
+            }
+
+            .hero-description {
+                margin: 0 auto 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-timeline {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-timeline::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                transition: var(--transition);
+                gap: 0.5rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+                padding: 0.8rem 1rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .process-timeline {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ON SCROLL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ===== LOGO Y PORTADA (assets) ===== */
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            flex-shrink: 0;
+        }
+
+        .preloader-logo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .footer-brand .footer-logo .brand-logo {
+            width: 52px;
+            height: 52px;
+        }
+
+        /* ===== PORTADA (banner independiente, sin texto encima) ===== */
+        .portada {
+            background: var(--navy);
+            padding-top: 76px; /* espacio para la barra de navegacion fija */
+            position: relative;
+        }
+
+        .portada-frame {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 0;
+        }
+
+        .portada-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            border: 1px solid rgba(201, 168, 76, 0.35);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        .portada::after {
+            content: '';
+            display: block;
+            height: 1.5rem;
+            background: linear-gradient(to bottom, var(--navy), transparent);
+        }
+
+        /* El hero ahora va debajo de la portada */
+        .hero {
+            min-height: auto;
+            padding: 3rem 0 5rem;
+        }
+
+        .hero-content {
+            padding-top: 1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content {
+                padding-top: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portada { padding-top: 64px; }
+            .portada-frame { padding: 1rem 1rem 0; }
+            .portada-img { border-radius: 10px; }
+        }
+        .map-social-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .map-social-link:hover {
+            color: var(--gold);
+        }
+
+        /* ===== LOGO 3D GIRATORIO ===== */
+        .about-image-content .wolf-icon {
+            font-size: 1rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .coin3d {
+            --size: 190px;
+            --half: 15px;
+            width: var(--size);
+            height: var(--size);
+            margin: 0 auto;
+            position: relative;
+            perspective: 900px;
+        }
+
+        .coin3d-tilt {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: rotateX(-12deg);
+        }
+
+        .coin3d-spin {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: coinSpin 9s linear infinite;
+        }
+
+        .coin-face,
+        .coin-edge {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+        }
+
+        .coin-face {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            overflow: hidden;
+            background: var(--navy);
+            border: 6px solid var(--gold);
+            box-sizing: border-box;
+            box-shadow: inset 0 0 18px rgba(0,0,0,0.45);
+        }
+
+        .coin-face img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 50%;
+        }
+
+        /* brillo metalico sobre las caras */
+        .coin-face::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: linear-gradient(120deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.22) 48%, rgba(255,255,255,0) 66%);
+            pointer-events: none;
+        }
+
+        .coin-front { transform: translateZ(var(--half)); }
+        .coin-back  { transform: translateZ(calc(var(--half) * -1)) rotateY(180deg); }
+
+        /* canto de la moneda: capas alternadas = borde acanalado */
+        .coin-edge.a { background: linear-gradient(135deg, #e3c76a, #c9a84c); }
+        .coin-edge.b { background: linear-gradient(135deg, #a8883a, #8a6d2b); }
+
+        .coin3d-shadow {
+            position: absolute;
+            left: 50%;
+            bottom: -26px;
+            width: 70%;
+            height: 18px;
+            transform: translateX(-50%);
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 70%);
+            filter: blur(3px);
+        }
+
+        @keyframes coinSpin {
+            from { transform: rotateY(0deg); }
+            to   { transform: rotateY(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .coin3d { --size: 150px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .coin3d-spin { animation: none; transform: rotateY(-25deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <img class="preloader-logo" data-asset="logo" src="assets/logo.png" alt="Black Wolf Legal Corp">
+            <div class="preloader-text">BLACK WOLF LEGAL CORP</div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo">
+                <img class="brand-logo" data-asset="logo" src="assets/logo.png" alt="Logo Black Wolf Legal Corp">
+                <div class="nav-logo-text">
+                    <span class="brand">BLACK WOLF</span>
+                    <span class="sub">Legal Corp</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#contacto" class="nav-cta">Agenda tu Consulta</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PORTADA -->
+    <section class="portada" id="inicio">
+        <div class="portada-frame">
+            <img class="portada-img" data-asset="portada" src="assets/portada.png" alt="Black Wolf Legal Corp - Soluciones legales estratégicas">
+        </div>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio-contenido">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>Tu aliado legal en Cusco</span>
+                </div>
+                <h1>Soluciones legales <span class="highlight">estratégicas</span> con respaldo profesional</h1>
+                <p class="hero-description">Brindamos asesoría legal integral para personas, familias y empresas. Claridad jurídica, estrategia y confianza en cada caso que tomamos.</p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Agenda tu Consulta
+                    </a>
+                    <a href="#servicios" class="btn-secondary">
+                        <i class="fas fa-arrow-right"></i>
+                        Ver Servicios
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="counter1">500+</div>
+                        <div class="stat-label">Casos Resueltos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">Áreas Legales</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Satisfacción</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="hero-card-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div>
+                            <div class="hero-card-title">Áreas de Práctica</div>
+                            <div class="hero-card-subtitle">Cobertura legal integral</div>
+                        </div>
+                    </div>
+                    <div class="hero-services-list">
+                        <div class="hero-service-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Derecho Civil</span>
+                        </div>
+                        <div class="hero-service-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Derecho Registral</span>
+                        </div>
+                        <div class="hero-service-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Derecho Familia</span>
+                        </div>
+                        <div class="hero-service-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Corporativo</span>
+                        </div>
+                        <div class="hero-service-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Conciliación</span>
+                        </div>
+                        <div class="hero-service-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Administrativo</span>
+                        </div>
+                        <div class="hero-service-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Migratorio</span>
+                        </div>
+                        <div class="hero-service-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Contratos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-floating-card card-1">
+                    <div class="floating-card-number">24/7</div>
+                    <div class="floating-card-text">Atención disponible</div>
+                </div>
+                <div class="hero-floating-card card-2">
+                    <div class="floating-card-number">100%</div>
+                    <div class="floating-card-text">Confidencialidad</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+        <div class="trust-container">
+            <div class="trust-item">
+                <i class="fas fa-shield-halved"></i>
+                <span>Confidencialidad Garantizada</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-award"></i>
+                <span>Profesionales Colegiados</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-clock"></i>
+                <span>Respuesta en 24 horas</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-handshake"></i>
+                <span>Asesoría Personalizada</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Oficina en Cusco</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="nosotros">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">Sobre Nosotros</div>
+                <h2 class="section-title">Un equipo legal comprometido con tu futuro</h2>
+                <p class="section-subtitle">En Black Wolf Legal Corp combinamos experiencia, estrategia y dedicación para ofrecer soluciones legales efectivas.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image-wrapper reveal">
+                    <div class="about-image">
+                        <div class="about-image-content">
+                            <div class="wolf-icon">
+                                <div class="coin3d" aria-label="Logo Black Wolf Legal Corp en 3D">
+                                    <div class="coin3d-tilt">
+                                        <div class="coin3d-spin">
+                                            <div class="coin-face coin-back"><img data-asset="logo" src="assets/logo.png" alt=""></div>
+                                        <span class="coin-edge a" style="transform: translateZ(-13px)"></span>
+                                        <span class="coin-edge b" style="transform: translateZ(-11px)"></span>
+                                        <span class="coin-edge a" style="transform: translateZ(-9px)"></span>
+                                        <span class="coin-edge b" style="transform: translateZ(-7px)"></span>
+                                        <span class="coin-edge a" style="transform: translateZ(-5px)"></span>
+                                        <span class="coin-edge b" style="transform: translateZ(-3px)"></span>
+                                        <span class="coin-edge a" style="transform: translateZ(-1px)"></span>
+                                        <span class="coin-edge b" style="transform: translateZ(1px)"></span>
+                                        <span class="coin-edge a" style="transform: translateZ(3px)"></span>
+                                        <span class="coin-edge b" style="transform: translateZ(5px)"></span>
+                                        <span class="coin-edge a" style="transform: translateZ(7px)"></span>
+                                        <span class="coin-edge b" style="transform: translateZ(9px)"></span>
+                                        <span class="coin-edge a" style="transform: translateZ(11px)"></span>
+                                        <span class="coin-edge b" style="transform: translateZ(13px)"></span>
+                                            <div class="coin-face coin-front"><img data-asset="logo" src="assets/logo.png" alt="Logo Black Wolf Legal Corp"></div>
+                                        </div>
+                                    </div>
+                                    <div class="coin3d-shadow"></div>
+                                </div>
+                            </div>
+                            <h3>Black Wolf Legal Corp</h3>
+                            <p>Tu patrimonio, nuestra prioridad. Tu tranquilidad, nuestro compromiso.</p>
+                        </div>
+                    </div>
+                    <div class="about-experience-badge">
+                        <div class="number">10+</div>
+                        <div class="text">Años de<br>Experiencia</div>
+                    </div>
+                </div>
+                <div class="about-content reveal">
+                    <h3>Asesoría legal y corporativa con respaldo profesional en Cusco</h3>
+                    <p>Somos un staff de abogados especializados en brindar soluciones legales integrales. Nuestro enfoque se centra en entender las necesidades únicas de cada cliente —ya sea persona natural, familia o empresa— para diseñar estrategias jurídicas efectivas y personalizadas.</p>
+                    <p>Nos distinguimos por nuestra transparencia, compromiso con los resultados y la capacidad de manejar casos complejos con la misma dedicación que los sencillos. Cada caso es tratado con la importancia que merece.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Atención Personalizada</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-file-contract"></i>
+                            <span>Enfoque Técnico</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-lock"></i>
+                            <span>Confidencialidad Total</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-bullseye"></i>
+                            <span>Soluciones Efectivas</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Estrategia Legal</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-handshake"></i>
+                            <span>Compromiso Real</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="servicios">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">Nuestros Servicios</div>
+                <h2 class="section-title">Soluciones registrales para un mejor mañana</h2>
+                <p class="section-subtitle">Ofrecemos asesoría legal en múltiples áreas del derecho con enfoque técnico, confidencialidad y soluciones efectivas.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1: Derecho Registral -->
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Derecho Registral</h3>
+                    <p>Protegemos y formalizamos tu patrimonio. Brindamos asesoría legal registral con enfoque técnico, confidencialidad y soluciones efectivas.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-chevron-right"></i> Saneamiento Registral — Regularización y orden de partidas</li>
+                        <li><i class="fas fa-chevron-right"></i> Inmatriculación — Primera inscripción de predios</li>
+                        <li><i class="fas fa-chevron-right"></i> Rectificación — Áreas, linderos y medidas perimétricas</li>
+                        <li><i class="fas fa-chevron-right"></i> Independización — División registral de inmuebles</li>
+                        <li><i class="fas fa-chevron-right"></i> Acumulación — Unificación de partidas y predios</li>
+                        <li><i class="fas fa-chevron-right"></i> Transferencias — Compraventa, donación y adjudicación</li>
+                        <li><i class="fas fa-chevron-right"></i> Búsqueda y Publicidad — Partidas, vigencias y certificados</li>
+                        <li><i class="fas fa-chevron-right"></i> Apelación Registral — Defensa técnica ante observaciones</li>
+                    </ul>
+                    <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 2: Derecho Corporativo -->
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Derecho Corporativo</h3>
+                    <p>Asesoría legal empresarial integral. Te acompañamos desde la constitución de tu empresa hasta la gestión de contratos y operaciones corporativas.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-chevron-right"></i> Constitución de empresas — EIRL, SRL, SAC, SA</li>
+                        <li><i class="fas fa-chevron-right"></i> Contratos comerciales — Redacción y revisión</li>
+                        <li><i class="fas fa-chevron-right"></i> Gobierno corporativo y compliance</li>
+                        <li><i class="fas fa-chevron-right"></i> Fusiones y adquisiciones</li>
+                        <li><i class="fas fa-chevron-right"></i> Asesoría en licitaciones públicas</li>
+                        <li><i class="fas fa-chevron-right"></i> Propiedad intelectual y marcas</li>
+                        <li><i class="fas fa-chevron-right"></i> Derecho laboral empresarial</li>
+                        <li><i class="fas fa-chevron-right"></i> Disolución y liquidación de sociedades</li>
+                    </ul>
+                    <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 3: Derecho de Familia -->
+                <div class="service-card reveal reveal-delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-people-roof"></i>
+                    </div>
+                    <h3>Derecho de Familia</h3>
+                    <p>Protegemos los derechos de las familias con sensibilidad y profesionalismo. Manejamos cada caso con la discreción y empatía que merece.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-chevron-right"></i> Divorcios — Mutual acuerdo y causal</li>
+                        <li><i class="fas fa-chevron-right"></i> Tenencia y régimen de visitas</li>
+                        <li><i class="fas fa-chevron-right"></i> Alimentos — Fijación, aumento y reducción</li>
+                        <li><i class="fas fa-chevron-right"></i> Filiación — Reconocimiento de hijos</li>
+                        <li><i class="fas fa-chevron-right"></i> Sucesiones intestadas y testadas</li>
+                        <li><i class="fas fa-chevron-right"></i> Tutelas y curatelas</li>
+                        <li><i class="fas fa-chevron-right"></i> Violencia familiar — Medidas de protección</li>
+                        <li><i class="fas fa-chevron-right"></i> Adopción</li>
+                    </ul>
+                    <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 4: Trámites Migratorios -->
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Trámites Migratorios</h3>
+                    <p>Tu aliado en un mundo sin fronteras. Asesoría legal migratoria personalizada para orientarte y regularizar tu situación migratoria.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-chevron-right"></i> Asesoría personalizada en cada paso</li>
+                        <li><i class="fas fa-chevron-right"></i> Cambio de calidad migratoria — Trabajo, negocio, familiar</li>
+                        <li><i class="fas fa-chevron-right"></i> Carné de extranjería — Obtención, renovación y orientación</li>
+                        <li><i class="fas fa-chevron-right"></i> Prórroga de permanencia según tu caso</li>
+                        <li><i class="fas fa-chevron-right"></i> Regularización documentaria</li>
+                        <li><i class="fas fa-chevron-right"></i> Rectificaciones y actualizaciones de datos</li>
+                        <li><i class="fas fa-chevron-right"></i> Subsanación de documentos y observaciones</li>
+                        <li><i class="fas fa-chevron-right"></i> Registro y cita de ficha Interpol</li>
+                        <li><i class="fas fa-chevron-right"></i> Apostilla nacional e internacional</li>
+                        <li><i class="fas fa-chevron-right"></i> Defensa y acompañamiento ante trámites migratorios</li>
+                    </ul>
+                    <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 5: Derecho Civil -->
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Derecho Civil</h3>
+                    <p>Defendemos tus derechos civiles con estrategia y dedicación. Desde obligaciones contractuales hasta responsabilidad civil.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-chevron-right"></i> Obligaciones y contratos</li>
+                        <li><i class="fas fa-chevron-right"></i> Responsabilidad civil extracontractual</li>
+                        <li><i class="fas fa-chevron-right"></i> Derechos reales — Propiedad, posesión, usufructo</li>
+                        <li><i class="fas fa-chevron-right"></i> Prescripción adquisitiva de dominio</li>
+                        <li><i class="fas fa-chevron-right"></i> Indemnizaciones y daños</li>
+                        <li><i class="fas fa-chevron-right"></i> Procesos civiles y cautelares</li>
+                    </ul>
+                    <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 6: Conciliación y Administrativo -->
+                <div class="service-card reveal reveal-delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake-angle"></i>
+                    </div>
+                    <h3>Conciliación y Administrativo</h3>
+                    <p>Resolución alternativa de conflictos y gestión ante entidades públicas. Soluciones rápidas y efectivas fuera del proceso judicial.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-chevron-right"></i> Conciliación extrajudicial obligatoria y voluntaria</li>
+                        <li><i class="fas fa-chevron-right"></i> Mediación y negociación</li>
+                        <li><i class="fas fa-chevron-right"></i> Procedimientos administrativos</li>
+                        <li><i class="fas fa-chevron-right"></i> Recursos administrativos — Reconsideración, apelación</li>
+                        <li><i class="fas fa-chevron-right"></i> Licencias y permisos municipales</li>
+                        <li><i class="fas fa-chevron-right"></i> Contratación con el Estado</li>
+                        <li><i class="fas fa-chevron-right"></i> Defensa ante SUNAT, SUNARP y otras entidades</li>
+                    </ul>
+                    <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILED SERVICES TABS -->
+    <section class="detailed-services">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">Detalle de Servicios</div>
+                <h2 class="section-title">Explora cada área en profundidad</h2>
+                <p class="section-subtitle">Selecciona un área para ver el detalle completo de nuestros servicios especializados.</p>
+            </div>
+            <div class="detail-tabs reveal">
+                <button class="detail-tab active" data-tab="registral">📋 Registral</button>
+                <button class="detail-tab" data-tab="corporativo">🏢 Corporativo</button>
+                <button class="detail-tab" data-tab="familia">👨‍‍👧 Familia</button>
+                <button class="detail-tab" data-tab="migratorio">🌎 Migratorio</button>
+                <button class="detail-tab" data-tab="civil">⚖️ Civil</button>
+            </div>
+
+            <!-- Registral Detail -->
+            <div class="detail-content active" id="tab-registral">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-file-circle-check"></i></div>
+                        <h4>Saneamiento Registral</h4>
+                        <p>Regularización y orden de partidas registrales. Corregimos inconsistencias en la información registral de tus inmuebles para garantizar la seguridad jurídica de tu patrimonio.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-map-location-dot"></i></div>
+                        <h4>Inmatriculación</h4>
+                        <p>Primera inscripción de predios en los registros públicos. Te guiamos en todo el proceso para que tu propiedad quede debidamente registrada y protegida legalmente.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-ruler-combined"></i></div>
+                        <h4>Rectificación de Áreas</h4>
+                        <p>Corrección de áreas, linderos y medidas perimétricas en partidas registrales. Solucionamos discrepancias entre la realidad física y la información registral.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-scissors"></i></div>
+                        <h4>Independización</h4>
+                        <p>División registral de inmuebles para crear unidades independientes. Ideal para proyectos inmobiliarios, condominios o separación de propiedades.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-layer-group"></i></div>
+                        <h4>Acumulación</h4>
+                        <p>Unificación de partidas y predios en una sola inscripción registral. Simplifica la gestión de propiedades colindantes o relacionadas.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-arrow-right-arrow-left"></i></div>
+                        <h4>Transferencias</h4>
+                        <p>Gestión completa de compraventa, donación y adjudicación de inmuebles. Aseguramos que cada transferencia cumpla con todos los requisitos legales.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-magnifying-glass"></i></div>
+                        <h4>Búsqueda y Publicidad Registral</h4>
+                        <p>Obtención de partidas, certificados de vigencia, gravámenes y cargas registrales. Información actualizada para tus decisiones legales.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-gavel"></i></div>
+                        <h4>Apelación Registral</h4>
+                        <p>Defensa técnica ante observaciones del registrador. Impugnamos calificaciones negativas y protegemos tus derechos registrales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Corporativo Detail -->
+            <div class="detail-content" id="tab-corporativo">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-building-circle-check"></i></div>
+                        <h4>Constitución de Empresas</h4>
+                        <p>Formalización de EIRL, SRL, SAC, SA y otros tipos societarios. Te acompañamos desde la elección del tipo societario hasta la inscripción en Registros Públicos.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-file-signature"></i></div>
+                        <h4>Contratos Comerciales</h4>
+                        <p>Redacción, revisión y negociación de contratos. Protegemos tus intereses en cada acuerdo comercial con cláusulas claras y efectivas.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h4>Compliance Corporativo</h4>
+                        <p>Implementación de programas de cumplimiento normativo. Prevenimos riesgos legales y aseguramos que tu empresa opere dentro del marco legal.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-copyright"></i></div>
+                        <h4>Propiedad Intelectual</h4>
+                        <p>Registro de marcas, patentes y derechos de autor. Protegemos los activos intangibles de tu empresa.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-users-gear"></i></div>
+                        <h4>Derecho Laboral Empresarial</h4>
+                        <p>Asesoría en contratación, despidos, beneficios sociales y relaciones colectivas. Cumplimiento normativo laboral.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-scale-balanced"></i></div>
+                        <h4>Disolución y Liquidación</h4>
+                        <p>Proceso ordenado de cierre de sociedades. Cumplimiento de todos los requisitos legales para una disolución limpia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Familia Detail -->
+            <div class="detail-content" id="tab-familia">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-heart-crack"></i></div>
+                        <h4>Divorcios</h4>
+                        <p>Procesos de divorcio por mutuo acuerdo y por causal. Manejamos cada caso con sensibilidad, buscando la mejor solución para todas las partes.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-child-reaching"></i></div>
+                        <h4>Tenencia y Visitas</h4>
+                        <p>Definición de tenencia de hijos menores y establecimiento de régimen de visitas. El bienestar de los niños es nuestra prioridad.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-coins"></i></div>
+                        <h4>Pensión de Alimentos</h4>
+                        <p>Fijación, aumento, reducción y exoneración de pensión alimenticia. Garantizamos el derecho de los hijos a recibir alimentación adecuada.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-scroll"></i></div>
+                        <h4>Sucesiones</h4>
+                        <p>Sucesiones intestadas y testadas. Declaratoria de herederos, inventario y partición de bienes. Ordenamos el patrimonio familiar.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-baby"></i></div>
+                        <h4>Filiación</h4>
+                        <p>Reconocimiento de hijos, impugnación de paternidad/maternidad. Defendemos el derecho a la identidad familiar.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-shield-heart"></i></div>
+                        <h4>Violencia Familiar</h4>
+                        <p>Medidas de protección, denuncias y seguimiento. Brindamos acompañamiento legal integral a víctimas de violencia familiar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Migratorio Detail -->
+            <div class="detail-content" id="tab-migratorio">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-user-plus"></i></div>
+                        <h4>Asesoría Personalizada</h4>
+                        <p>Te orientamos en cada paso del proceso migratorio. Evaluamos tu situación particular y diseñamos la mejor estrategia legal.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-id-card"></i></div>
+                        <h4>Cambio de Calidad Migratoria</h4>
+                        <p>Trámite de cambio de calidad: trabajador, independiente, estudiante, familiar, rentista y otros. Te ayudamos a cumplir tus metas.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-passport"></i></div>
+                        <h4>Carné de Extranjería</h4>
+                        <p>Obtención, renovación y orientación sobre el carné de extranjería. Gestión completa ante Migraciones.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-calendar-plus"></i></div>
+                        <h4>Prórroga de Permanencia</h4>
+                        <p>Ampliación de estadía según tu caso particular. Evita sanciones por permanencia irregular.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-folder-open"></i></div>
+                        <h4>Regularización Documentaria</h4>
+                        <p>Orden y revisión de tu expediente migratorio. Aseguramos que toda tu documentación esté completa y en orden.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-stamp"></i></div>
+                        <h4>Apostilla</h4>
+                        <p>Apostilla nacional e internacional de documentos. Valida tus documentos para uso en el extranjero.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-fingerprint"></i></div>
+                        <h4>Ficha Interpol</h4>
+                        <p>Registro y cita de ficha Interpol. Gestión completa del proceso ante la PNP.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-scale-unbalanced"></i></div>
+                        <h4>Defensa y Acompañamiento</h4>
+                        <p>Seguimiento y apoyo ante trámites migratorios complejos. Te representamos y defendemos en cada instancia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Civil Detail -->
+            <div class="detail-content" id="tab-civil">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-file-contract"></i></div>
+                        <h4>Obligaciones y Contratos</h4>
+                        <p>Asesoría en cumplimiento, incumplimiento y resolución de obligaciones contractuales. Defensa de tus derechos contractuales.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-car-burst"></i></div>
+                        <h4>Responsabilidad Civil</h4>
+                        <p>Reclamación de indemnizaciones por daños y perjuicios. Accidentes, negligencia profesional y responsabilidad extracontractual.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-house-chimney"></i></div>
+                        <h4>Derechos Reales</h4>
+                        <p>Propiedad, posesión, usufructo, servidumbre y otros derechos reales. Protección de tus derechos sobre bienes inmuebles y muebles.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-clock-rotate-left"></i></div>
+                        <h4>Prescripción Adquisitiva</h4>
+                        <p>Procesos de prescripción adquisitiva de dominio. Regulariza la propiedad de inmuebles que has poseído pacíficamente.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+                        <h4>Cobranza Judicial</h4>
+                        <p>Procesos de cobro de deudas, títulos valores y obligaciones dinerarias. Recuperación efectiva de créditos.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-landmark-dome"></i></div>
+                        <h4>Procesos Cautelares</h4>
+                        <p>Medidas cautelares: embargo, secuestro, anotación de demanda, retención. Protege tus derechos antes del proceso principal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-us">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">¿Por Qué Elegirnos?</div>
+                <h2 class="section-title">La diferencia Black Wolf</h2>
+                <p class="section-subtitle">Nos distinguimos por nuestro compromiso, profesionalismo y resultados comprobados.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card reveal reveal-delay-1">
+                    <div class="why-card-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Profesionales Colegiados</h3>
+                    <p>Nuestro equipo está conformado por abogados colegiados con amplia experiencia en diversas ramas del derecho peruano.</p>
+                </div>
+                <div class="why-card reveal reveal-delay-2">
+                    <div class="why-card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Estrategia Personalizada</h3>
+                    <p>Cada caso es único. Diseñamos estrategias legales a medida según las necesidades específicas de cada cliente.</p>
+                </div>
+                <div class="why-card reveal reveal-delay-3">
+                    <div class="why-card-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Confidencialidad Total</h3>
+                    <p>Garantizamos la absoluta confidencialidad de toda la información compartida. Tu privacidad es sagrada para nosotros.</p>
+                </div>
+                <div class="why-card reveal reveal-delay-4">
+                    <div class="why-card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Respuesta Oportuna</h3>
+                    <p>Entendemos la urgencia de los asuntos legales. Respondemos en menos de 24 horas y cumplimos con los plazos establecidos.</p>
+                </div>
+                <div class="why-card reveal reveal-delay-1">
+                    <div class="why-card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Transparencia en Honorarios</h3>
+                    <p>Presupuestos claros desde el inicio. Sin costos ocultos ni sorpresas. Sabes exactamente cuánto invertirás en tu caso.</p>
+                </div>
+                <div class="why-card reveal reveal-delay-2">
+                    <div class="why-card-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Resultados Comprobados</h3>
+                    <p>Más de 500 casos resueltos exitosamente. Nuestro historial habla por sí solo: claridad jurídica, estrategia y confianza.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section class="process" id="proceso">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">Nuestro Proceso</div>
+                <h2 class="section-title">Cómo trabajamos tu caso</h2>
+                <p class="section-subtitle">Un proceso claro y transparente desde el primer contacto hasta la resolución.</p>
+            </div>
+            <div class="process-timeline reveal">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h4>Consulta Inicial</h4>
+                    <p>Agenda tu consulta gratuita. Escuchamos tu caso, analizamos la situación y evaluamos las opciones legales disponibles.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h4>Análisis y Estrategia</h4>
+                    <p>Estudiamos a fondo tu caso, revisamos documentación y diseñamos una estrategia legal personalizada y efectiva.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h4>Ejecución Legal</h4>
+                    <p>Implementamos la estrategia con diligencia. Te mantenemos informado en cada etapa del proceso legal.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <h4>Resolución y Seguimiento</h4>
+                    <p>Logramos el mejor resultado posible y brindamos seguimiento post-resolución para tu tranquilidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonios">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">Testimonios</div>
+                <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+                <p class="section-subtitle">La satisfacción de nuestros clientes es nuestro mayor logro.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Excelente servicio en el saneamiento registral de mi propiedad. El equipo de Black Wolf fue muy profesional y resolvió todo en el tiempo estimado. Totalmente recomendados.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MR</div>
+                        <div>
+                            <div class="testimonial-name">María Rodríguez</div>
+                            <div class="testimonial-role">Propietaria — Cusco</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Me ayudaron con todos los trámites migratorios para mi familia. La asesoría fue personalizada y nos orientaron en cada paso. Ahora tenemos nuestra situación regularizada.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">CL</div>
+                        <div>
+                            <div class="testimonial-name">Carlos López</div>
+                            <div class="testimonial-role">Cliente Migratorio</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-3">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Constituyeron mi empresa de forma rápida y eficiente. La asesoría corporativa es de primer nivel. Ahora son mis abogados de confianza para todos los temas legales de mi negocio.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JP</div>
+                        <div>
+                            <div class="testimonial-name">Jorge Paredes</div>
+                            <div class="testimonial-role">Empresario — Cusco</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team" id="equipo">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">Nuestro Equipo</div>
+                <h2 class="section-title">Profesionales a tu servicio</h2>
+                <p class="section-subtitle">Un equipo multidisciplinario de abogados comprometidos con tu éxito legal.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card reveal reveal-delay-1">
+                    <div class="team-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Director Legal</h3>
+                        <div class="role">Socio Fundador</div>
+                        <p>Especialista en Derecho Corporativo, Registral y Civil. Más de 10 años de experiencia en asesoría legal integral.</p>
+                    </div>
+                </div>
+                <div class="team-card reveal reveal-delay-2">
+                    <div class="team-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Asesor Senior</h3>
+                        <div class="role">Abogado Asociado</div>
+                        <p>Especialista en Derecho de Familia, Conciliación y Trámites Migratorios. Enfoque humano y resultados efectivos.</p>
+                    </div>
+                </div>
+                <div class="team-card reveal reveal-delay-3">
+                    <div class="team-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Equipo de Apoyo</h3>
+                        <div class="role">Staff Legal</div>
+                        <p>Profesionales en formación y asistentes legales que garantizan la eficiencia y calidad en cada trámite.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="section-container">
+            <div class="cta-content reveal">
+                <h2>Tu tranquilidad es nuestra prioridad</h2>
+                <p>No dejes tus asuntos legales al azar. Agenda una consulta hoy y descubre cómo podemos ayudarte.</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/51992708510" target="_blank" class="btn-dark">
+                        <i class="fab fa-whatsapp"></i>
+                        Escríbenos por WhatsApp
+                    </a>
+                    <a href="tel:+51976365094" class="btn-outline-dark">
+                        <i class="fas fa-phone"></i>
+                        Llámanos Ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contacto">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-tag">Contáctanos</div>
+                <h2 class="section-title">Agenda tu consulta hoy</h2>
+                <p class="section-subtitle">Estamos listos para ayudarte. Contáctanos por el medio que prefieras.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3>Información de Contacto</h3>
+                    <p>Contenido y asesoría para personas, familias y empresas. Tu patrimonio, nuestra prioridad. Tu tranquilidad, nuestro compromiso.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-method-text">
+                                <div class="label">WhatsApp / Área Legal</div>
+                                <div class="value"><a href="https://wa.me/51992708510">992 708 510</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-method-text">
+                                <div class="label">Corporativo</div>
+                                <div class="value"><a href="tel:+51976365094">976 365 094</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-method-text">
+                                <div class="label">Consultas</div>
+                                <div class="value"><a href="tel:+51915061082">915 061 082</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-method-text">
+                                <div class="label">Email</div>
+                                <div class="value"><a href="mailto:bwolfcorporation@gmail.com">bwolfcorporation@gmail.com</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-method-text">
+                                <div class="label">Oficina Central</div>
+                                <div class="value">Av. El Sol — Interiores del Centro Comercial Cusco I-16, 1er piso</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper reveal">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Nombre completo *</label>
+                                <input type="text" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Teléfono *</label>
+                                <input type="tel" placeholder="999 999 999" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="tu@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Área de interés *</label>
+                                <select required>
+                                    <option value="">Seleccionar...</option>
+                                    <option>Derecho Registral</option>
+                                    <option>Derecho Corporativo</option>
+                                    <option>Derecho de Familia</option>
+                                    <option>Trámites Migratorios</option>
+                                    <option>Derecho Civil</option>
+                                    <option>Conciliación</option>
+                                    <option>Derecho Administrativo</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                            <div class="form-group full">
+                                <label>Describe tu caso *</label>
+                                <textarea placeholder="Cuéntanos brevemente sobre tu situación legal..." required></textarea>
+                            </div>
+                            <div class="form-group full">
+                                <button type="submit" class="form-submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Enviar Mensaje
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-info reveal">
+                <h3>Visítanos en Cusco</h3>
+                <p>Nuestra oficina central está ubicada en el corazón de la ciudad del Cusco, en una ubicación accesible y profesional.</p>
+                <div class="map-details">
+                    <div class="map-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Av. El Sol — Interiores del Centro Comercial Cusco I-16, 1er piso</span>
+                    </div>
+                    <div class="map-detail">
+                        <i class="fas fa-clock"></i>
+                        <span>Lunes a Viernes: 9:00 AM - 6:00 PM | Sábados: 9:00 AM - 1:00 PM</span>
+                    </div>
+                    <div class="map-detail">
+                        <i class="fas fa-search"></i>
+                        <span>Búscanos en Google Maps como: <strong>BLACK WOLF LEGAL CORP - CUSCO</strong></span>
+                    </div>
+                    <div class="map-detail">
+                        <i class="fab fa-facebook"></i>
+                        <span><a href="https://www.facebook.com/BLACKWOLFCORPORATION" target="_blank" rel="noopener noreferrer" class="map-social-link">BLACK WOLF CORP</a></span>
+                    </div>
+                    <div class="map-detail">
+                        <i class="fab fa-instagram"></i>
+                        <span><a href="https://www.instagram.com/black.wolf.corporation/" target="_blank" rel="noopener noreferrer" class="map-social-link">@black.wolf.corporation</a></span>
+                    </div>
+                    <div class="map-detail">
+                        <i class="fab fa-tiktok"></i>
+                        <span>@blackwolfcorp</span>
+                    </div>
+                </div>
+            </div>
+            <div class="map-embed reveal">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3878.1234567890!2d-71.9674!3d-13.5320!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDMxJzU1LjIiUyA3McKwNTgnMDIuNiJX!5e0!3m2!1ses!2spe!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img class="brand-logo" data-asset="logo" src="assets/logo.png" alt="Logo Black Wolf Legal Corp">
+                    <span class="footer-logo-text">BLACK WOLF LEGAL CORP</span>
+                </div>
+                <p>Soluciones legales estratégicas con respaldo profesional. Claridad jurídica, estrategia y confianza para personas, familias y empresas en Cusco, Perú.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/BLACKWOLFCORPORATION" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/black.wolf.corporation/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/51992708510" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:bwolfcorporation@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Servicios</h4>
+                <ul class="footer-links">
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Derecho Registral</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Derecho Corporativo</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Derecho de Familia</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Trámites Migratorios</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Derecho Civil</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Conciliación</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <ul class="footer-links">
+                    <li><a href="#nosotros"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                    <li><a href="#equipo"><i class="fas fa-chevron-right"></i> Nuestro Equipo</a></li>
+                    <li><a href="#testimonios"><i class="fas fa-chevron-right"></i> Testimonios</a></li>
+                    <li><a href="#proceso"><i class="fas fa-chevron-right"></i> Nuestro Proceso</a></li>
+                    <li><a href="#contacto"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:+51992708510"><i class="fas fa-phone"></i> 992 708 510</a></li>
+                    <li><a href="tel:+51976365094"><i class="fas fa-phone"></i> 976 365 094</a></li>
+                    <li><a href="tel:+51915061082"><i class="fas fa-phone"></i> 915 061 082</a></li>
+                    <li><a href="mailto:bwolfcorporation@gmail.com"><i class="fas fa-envelope"></i> bwolfcorporation@gmail.com</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Av. El Sol, Cusco</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Black Wolf Legal Corp. Todos los derechos reservados.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/51992708510?text=Hola%2C%20quiero%20agendar%20una%20consulta%20legal" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <a href="#inicio" class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+                backToTop.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Detail tabs
+        const detailTabs = document.querySelectorAll('.detail-tab');
+        const detailContents = document.querySelectorAll('.detail-content');
+
+        detailTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                detailTabs.forEach(t => t.classList.remove('active'));
+                detailContents.forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            particle.style.animationDelay = (Math.random() * 10) + 's';
+            particle.style.width = (Math.random() * 3 + 1) + 'px';
+            particle.style.height = particle.style.width;
+            particlesContainer.appendChild(particle);
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Gracias por contactarnos! Nos comunicaremos contigo en menos de 24 horas.');
+            e.target.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        // Carga el logo probando las extensiones mas comunes
+        (function () {
+            var exts = ['png', 'jpg', 'jpeg', 'webp'];
+            document.querySelectorAll('img[data-asset]').forEach(function (img) {
+                var i = 0;
+                img.addEventListener('error', function () {
+                    i++;
+                    if (i < exts.length) { img.src = 'assets/' + img.getAttribute('data-asset') + '.' + exts[i]; }
+                });
+            });
+            var fav = document.getElementById('favicon');
+            var probe = new Image();
+            var j = 0;
+            probe.onload = function () { fav.href = probe.src; };
+            probe.onerror = function () { j++; if (j < exts.length) { probe.src = 'assets/logo.' + exts[j]; } };
+            probe.src = 'assets/logo.' + exts[0];
+        })();
+    </script>
+</body>
+</html>
