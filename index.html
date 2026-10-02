@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a1628">
     <title>Black Wolf Legal Corp | Soluciones Legales Estratégicas</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -425,6 +426,25 @@
             margin-top: 0.3rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        .stat-especialidad {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            text-align: left;
+        }
+
+        .stat-especialidad .stat-number {
+            font-size: 3rem;
+        }
+
+        .stat-detail {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.75);
+            margin-top: 0.4rem;
+            line-height: 1.5;
+            max-width: 440px;
         }
 
         .hero-visual {
@@ -1606,9 +1626,10 @@
         }
 
         .map-embed {
+            position: relative;
             border-radius: 15px;
             overflow: hidden;
-            height: 300px;
+            height: 380px;
             background: var(--navy-mid);
             display: flex;
             align-items: center;
@@ -1620,6 +1641,29 @@
             width: 100%;
             height: 100%;
             border: none;
+        }
+
+        .map-open-btn {
+            position: absolute;
+            right: 12px;
+            bottom: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.2rem;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .map-open-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.45);
         }
 
         /* ===== FOOTER ===== */
@@ -2164,6 +2208,405 @@
         @media (prefers-reduced-motion: reduce) {
             .coin3d-spin { animation: none; transform: rotateY(-25deg); }
         }
+
+        /* =====================================================
+           MEJORAS RESPONSIVE (celular, tablet, laptop, escritorio, TV/4K)
+           ===================================================== */
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        img, svg, video, iframe {
+            max-width: 100%;
+        }
+
+        body {
+            overflow-wrap: break-word;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Margenes laterales fluidos + respeto de zonas seguras (notch) */
+        .nav-container,
+        .hero-container,
+        .section-container,
+        .trust-container,
+        .map-container,
+        .footer-grid,
+        .footer-bottom,
+        .portada-frame {
+            padding-left: max(clamp(1rem, 4vw, 2rem), env(safe-area-inset-left));
+            padding-right: max(clamp(1rem, 4vw, 2rem), env(safe-area-inset-right));
+        }
+
+        /* Espaciado vertical de secciones fluido */
+        .about, .services, .detailed-services, .why-us,
+        .process, .testimonials, .team, .contact {
+            padding-top: clamp(3.5rem, 8vw, 7rem);
+            padding-bottom: clamp(3.5rem, 8vw, 7rem);
+        }
+
+        .cta-section {
+            padding-top: clamp(3rem, 6vw, 5rem);
+            padding-bottom: clamp(3rem, 6vw, 5rem);
+        }
+
+        .hero {
+            padding-top: clamp(2rem, 4vw, 3rem);
+            padding-bottom: clamp(3rem, 6vw, 5rem);
+        }
+
+        .section-header {
+            margin-bottom: clamp(2rem, 5vw, 4rem);
+        }
+
+        /* Tipografia fluida */
+        .hero h1 { font-size: clamp(2rem, 1.2rem + 3.6vw, 3.8rem); }
+        .hero-description { font-size: clamp(1rem, 0.95rem + 0.4vw, 1.15rem); }
+        .section-title { font-size: clamp(1.7rem, 1rem + 2.6vw, 2.8rem); }
+        .section-subtitle { font-size: clamp(1rem, 0.95rem + 0.3vw, 1.1rem); }
+        .cta-content h2 { font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem); }
+        .about-content h3 { font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2rem); }
+
+        /* Rejillas que nunca desbordan en pantallas muy angostas */
+        .services-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(1.25rem, 3vw, 2rem); }
+        .detail-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+        .why-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+        .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+        .team-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+        .hero-container { gap: clamp(2rem, 5vw, 4rem); }
+        .about-grid { gap: clamp(2rem, 5vw, 4rem); }
+
+        .contact-method { overflow-wrap: anywhere; }
+        .contact-method-icon { flex-shrink: 0; }
+        .service-list li { overflow-wrap: anywhere; }
+
+        .nav-backdrop {
+            display: none;
+        }
+
+        .hamburger:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+            border-radius: 6px;
+        }
+
+        /* ---------- Laptops pequenas y tablets horizontales: menu hamburguesa ---------- */
+        @media (max-width: 1100px) {
+            .hamburger {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                margin-right: -8px;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: min(86%, 360px);
+                height: 100vh;
+                height: 100dvh;
+                background: var(--navy);
+                flex-direction: column;
+                align-items: stretch;
+                padding: 5.5rem 1.5rem 2rem;
+                gap: 0.4rem;
+                overflow-y: auto;
+                overscroll-behavior: contain;
+                visibility: hidden;
+                box-shadow: none;
+                transition: right 0.4s ease, visibility 0.4s ease, box-shadow 0.4s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+                visibility: visible;
+                box-shadow: -20px 0 50px rgba(0,0,0,0.5);
+            }
+
+            .nav-links li { width: 100%; }
+
+            .nav-links a {
+                display: flex;
+                align-items: center;
+                min-height: 48px;
+                font-size: 1rem;
+                padding: 0.8rem 1rem;
+            }
+
+            .nav-links .nav-cta {
+                justify-content: center;
+                margin-top: 0.75rem;
+            }
+
+            .nav-backdrop {
+                display: block;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.55);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.4s ease, visibility 0.4s ease;
+                z-index: 990;
+            }
+
+            .nav-backdrop.active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        /* ---------- Tablets ---------- */
+        @media (max-width: 1024px) {
+            .about-features { grid-template-columns: 1fr 1fr; }
+            .process-timeline { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-brand { grid-column: 1 / -1; }
+            .map-embed { height: clamp(280px, 55vw, 400px); }
+            .about-image { height: auto; min-height: 380px; }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+            .form-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-bottom { justify-content: center; }
+            .footer-bottom-links { flex-wrap: wrap; justify-content: center; }
+
+            .about-experience-badge {
+                right: 12px;
+                bottom: -18px;
+                padding: 1rem 1.4rem;
+            }
+
+            .about-image-wrapper { margin-bottom: 1.5rem; }
+            .about-image-content { padding: 2rem 1.25rem; }
+            .about-image-content h3 { font-size: 1.6rem; }
+
+            .contact-form-wrapper { padding: 1.75rem; }
+
+            /* 16px evita el zoom automatico de iOS al tocar un campo */
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px;
+            }
+
+            .form-group input,
+            .form-group select {
+                min-height: 48px;
+            }
+
+            .detail-item,
+            .why-card,
+            .testimonial-card { padding: 1.75rem; }
+        }
+
+        /* ---------- Pestanas de detalle: carrusel horizontal en pantallas angostas ---------- */
+        @media (max-width: 700px) {
+            .detail-tabs {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                gap: 0.5rem;
+                padding: 0.25rem 0.25rem 0.75rem;
+                margin-left: -0.25rem;
+                margin-right: -0.25rem;
+                scroll-snap-type: x proximity;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .detail-tabs::-webkit-scrollbar { display: none; }
+
+            .detail-tab {
+                flex: 0 0 auto;
+                white-space: nowrap;
+                padding: 0.7rem 1.15rem;
+                font-size: 0.85rem;
+                scroll-snap-align: center;
+            }
+        }
+
+        /* ---------- Celulares ---------- */
+        @media (max-width: 600px) {
+            .process-timeline { grid-template-columns: 1fr; gap: 1.75rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .form-grid { grid-template-columns: 1fr; }
+
+            .trust-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem 1.25rem;
+                justify-items: start;
+            }
+
+            .trust-item { font-size: 0.82rem; gap: 0.6rem; }
+            .trust-item:last-child { grid-column: 1 / -1; justify-self: center; }
+
+            .hero-badge { max-width: 100%; padding: 0.45rem 1rem; }
+            .hero-badge span { font-size: 0.7rem; letter-spacing: 1.2px; }
+
+            .stat-especialidad {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.4rem;
+            }
+
+            .stat-especialidad .stat-number { font-size: 2.6rem; }
+            .stat-detail { margin-left: auto; margin-right: auto; font-size: 0.9rem; }
+
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-secondary,
+            .cta-buttons .btn-dark,
+            .cta-buttons .btn-outline-dark {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .section-tag { letter-spacing: 2px; }
+            .section-tag::before, .section-tag::after { width: 18px; }
+
+            .team-image { height: 240px; }
+        }
+
+        @media (max-width: 480px) {
+            .brand-logo { width: 40px; height: 40px; }
+            .nav-logo { gap: 0.6rem; }
+            .nav-logo-text .brand { font-size: 1.05rem; letter-spacing: 1px; }
+            .nav-logo-text .sub { font-size: 0.55rem; letter-spacing: 3px; }
+
+            .service-card,
+            .why-card,
+            .testimonial-card,
+            .detail-item { padding: 1.5rem 1.25rem; }
+
+            .contact-form-wrapper { padding: 1.5rem 1.1rem; }
+            .contact-method { padding: 1rem; }
+            .about-features { grid-template-columns: 1fr; }
+
+            .map-embed { height: 300px; }
+
+            .map-open-btn {
+                right: 8px;
+                bottom: 26px;
+                padding: 0.55rem 0.95rem;
+                font-size: 0.8rem;
+            }
+
+            .whatsapp-float {
+                right: max(1rem, env(safe-area-inset-right));
+                bottom: max(1rem, env(safe-area-inset-bottom));
+            }
+
+            .whatsapp-btn { width: 54px; height: 54px; font-size: 1.6rem; }
+
+            .back-to-top {
+                left: max(1rem, env(safe-area-inset-left));
+                bottom: max(1rem, env(safe-area-inset-bottom));
+                width: 44px;
+                height: 44px;
+            }
+
+            .footer-bottom { padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+        }
+
+        @media (max-width: 380px) {
+            .nav-logo-text .brand { font-size: 0.95rem; }
+            .nav-logo-text .sub { letter-spacing: 2px; }
+            .coin3d { --size: 130px; }
+            .detail-tab { padding: 0.65rem 1rem; }
+        }
+
+        /* ---------- Celulares en horizontal (poca altura) ---------- */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .nav-links { padding-top: 4.5rem; }
+            .nav-links a { min-height: 44px; padding: 0.6rem 1rem; }
+            .whatsapp-btn { width: 48px; height: 48px; font-size: 1.4rem; }
+        }
+
+        /* ---------- Pantallas de escritorio grandes, TV y 4K ---------- */
+        @media (min-width: 1600px) {
+            .nav-container,
+            .hero-container,
+            .section-container,
+            .trust-container,
+            .map-container,
+            .footer-grid,
+            .footer-bottom,
+            .portada-frame {
+                max-width: 1440px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            html { font-size: 112.5%; }
+
+            .nav-container,
+            .hero-container,
+            .section-container,
+            .trust-container,
+            .map-container,
+            .footer-grid,
+            .footer-bottom,
+            .portada-frame {
+                max-width: 1640px;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            html { font-size: 125%; }
+
+            .nav-container,
+            .hero-container,
+            .section-container,
+            .trust-container,
+            .map-container,
+            .footer-grid,
+            .footer-bottom,
+            .portada-frame {
+                max-width: 1960px;
+            }
+        }
+
+        /* ---------- Pantallas tactiles: sin "hover" pegado ---------- */
+        @media (hover: none) {
+            .service-card:hover,
+            .why-card:hover,
+            .testimonial-card:hover,
+            .team-card:hover,
+            .detail-item:hover,
+            .about-feature:hover,
+            .process-step:hover .process-number {
+                transform: none;
+            }
+        }
+
+        /* ---------- Accesibilidad: respeta "reducir movimiento" ---------- */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body>
@@ -2232,17 +2675,12 @@
                     </a>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" id="counter1">500+</div>
-                        <div class="stat-label">Casos Resueltos</div>
-                    </div>
-                    <div class="stat-item">
+                    <div class="stat-item stat-especialidad">
                         <div class="stat-number">7</div>
-                        <div class="stat-label">Áreas Legales</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Satisfacción</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Áreas de Especialidad</div>
+                            <div class="stat-detail">Familia, Registral, Migratorio, Corporativo, Sucesorio, Tránsito y Administrativo</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2446,16 +2884,17 @@
                         <i class="fas fa-building"></i>
                     </div>
                     <h3>Derecho Corporativo</h3>
-                    <p>Asesoría legal empresarial integral. Te acompañamos desde la constitución de tu empresa hasta la gestión de contratos y operaciones corporativas.</p>
+                    <p>Asesoría legal integral para la creación, gestión y crecimiento de tu empresa, con soluciones sólidas y estratégicas. Tu negocio, nuestro respaldo.</p>
                     <ul class="service-list">
-                        <li><i class="fas fa-chevron-right"></i> Constitución de empresas — EIRL, SRL, SAC, SA</li>
-                        <li><i class="fas fa-chevron-right"></i> Contratos comerciales — Redacción y revisión</li>
-                        <li><i class="fas fa-chevron-right"></i> Gobierno corporativo y compliance</li>
-                        <li><i class="fas fa-chevron-right"></i> Fusiones y adquisiciones</li>
+                        <li><i class="fas fa-chevron-right"></i> Constitución de empresas — SAC, EIRL, SRL, SA y otros regímenes</li>
+                        <li><i class="fas fa-chevron-right"></i> Contratos empresariales — Elaboración, revisión y negociación</li>
+                        <li><i class="fas fa-chevron-right"></i> Gobierno corporativo — Juntas, estatutos y cumplimiento</li>
+                        <li><i class="fas fa-chevron-right"></i> Fusiones y adquisiciones — Reestructuración y expansión</li>
+                        <li><i class="fas fa-chevron-right"></i> Cumplimiento normativo — Prevención de riesgos legales</li>
                         <li><i class="fas fa-chevron-right"></i> Asesoría en licitaciones públicas</li>
                         <li><i class="fas fa-chevron-right"></i> Propiedad intelectual y marcas</li>
                         <li><i class="fas fa-chevron-right"></i> Derecho laboral empresarial</li>
-                        <li><i class="fas fa-chevron-right"></i> Disolución y liquidación de sociedades</li>
+                        <li><i class="fas fa-chevron-right"></i> Disolución y liquidación — Cierre ordenado y seguro</li>
                     </ul>
                     <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -2466,16 +2905,18 @@
                         <i class="fas fa-people-roof"></i>
                     </div>
                     <h3>Derecho de Familia</h3>
-                    <p>Protegemos los derechos de las familias con sensibilidad y profesionalismo. Manejamos cada caso con la discreción y empatía que merece.</p>
+                    <p>Protegemos lo más importante: tu familia. Brindamos asesoría legal especializada con trato humano, confidencialidad y soluciones efectivas.</p>
                     <ul class="service-list">
-                        <li><i class="fas fa-chevron-right"></i> Divorcios — Mutual acuerdo y causal</li>
-                        <li><i class="fas fa-chevron-right"></i> Tenencia y régimen de visitas</li>
-                        <li><i class="fas fa-chevron-right"></i> Alimentos — Fijación, aumento y reducción</li>
+                        <li><i class="fas fa-chevron-right"></i> Divorcio — De mutuo acuerdo o contencioso</li>
+                        <li><i class="fas fa-chevron-right"></i> Tenencia y régimen de visitas — Protección del bienestar de tus hijos</li>
+                        <li><i class="fas fa-chevron-right"></i> Alimentos — Para hijos, cónyuge o ascendientes</li>
+                        <li><i class="fas fa-chevron-right"></i> Patria potestad — Reconocimiento, suspensión o pérdida</li>
+                        <li><i class="fas fa-chevron-right"></i> Unión de hecho — Reconocimiento y disolución</li>
                         <li><i class="fas fa-chevron-right"></i> Filiación — Reconocimiento de hijos</li>
                         <li><i class="fas fa-chevron-right"></i> Sucesiones intestadas y testadas</li>
-                        <li><i class="fas fa-chevron-right"></i> Tutelas y curatelas</li>
-                        <li><i class="fas fa-chevron-right"></i> Violencia familiar — Medidas de protección</li>
-                        <li><i class="fas fa-chevron-right"></i> Adopción</li>
+                        <li><i class="fas fa-chevron-right"></i> Conciliación familiar — Soluciones rápidas y efectivas</li>
+                        <li><i class="fas fa-chevron-right"></i> Violencia familiar — Orientación legal y medidas de protección</li>
+                        <li><i class="fas fa-chevron-right"></i> Otros procesos de familia — Tutelas, curatelas y adopción, con sensibilidad y compromiso</li>
                     </ul>
                     <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -2486,18 +2927,18 @@
                         <i class="fas fa-globe-americas"></i>
                     </div>
                     <h3>Trámites Migratorios</h3>
-                    <p>Tu aliado en un mundo sin fronteras. Asesoría legal migratoria personalizada para orientarte y regularizar tu situación migratoria.</p>
+                    <p>Tu aliado en un mundo sin fronteras. Asesoría legal migratoria personalizada para orientarte y regularizar tu situación migratoria, con seguridad en tus trámites, rapidez y eficiencia.</p>
                     <ul class="service-list">
-                        <li><i class="fas fa-chevron-right"></i> Asesoría personalizada en cada paso</li>
-                        <li><i class="fas fa-chevron-right"></i> Cambio de calidad migratoria — Trabajo, negocio, familiar</li>
+                        <li><i class="fas fa-chevron-right"></i> Asesoría personalizada — Te orientamos en cada paso</li>
+                        <li><i class="fas fa-chevron-right"></i> Cambio de calidad migratoria — Trabajo, negocio, familiar y otros</li>
                         <li><i class="fas fa-chevron-right"></i> Carné de extranjería — Obtención, renovación y orientación</li>
-                        <li><i class="fas fa-chevron-right"></i> Prórroga de permanencia según tu caso</li>
-                        <li><i class="fas fa-chevron-right"></i> Regularización documentaria</li>
-                        <li><i class="fas fa-chevron-right"></i> Rectificaciones y actualizaciones de datos</li>
-                        <li><i class="fas fa-chevron-right"></i> Subsanación de documentos y observaciones</li>
+                        <li><i class="fas fa-chevron-right"></i> Prórroga de permanencia — Ampliación de estadía según tu caso</li>
+                        <li><i class="fas fa-chevron-right"></i> Regularización documentaria — Orden y revisión de tu expediente migratorio</li>
+                        <li><i class="fas fa-chevron-right"></i> Rectificaciones y actualizaciones — Corrección de datos y de información</li>
+                        <li><i class="fas fa-chevron-right"></i> Subsanación de documentos — Solucionamos observaciones</li>
                         <li><i class="fas fa-chevron-right"></i> Registro y cita de ficha Interpol</li>
                         <li><i class="fas fa-chevron-right"></i> Apostilla nacional e internacional</li>
-                        <li><i class="fas fa-chevron-right"></i> Defensa y acompañamiento ante trámites migratorios</li>
+                        <li><i class="fas fa-chevron-right"></i> Defensa y acompañamiento — Seguimiento y apoyo ante trámites migratorios</li>
                     </ul>
                     <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -2520,21 +2961,42 @@
                     <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- Service 6: Conciliación y Administrativo -->
+                <!-- Service 6: Derecho Administrativo y Conciliación -->
                 <div class="service-card reveal reveal-delay-3">
                     <div class="service-icon">
                         <i class="fas fa-handshake-angle"></i>
                     </div>
-                    <h3>Conciliación y Administrativo</h3>
-                    <p>Resolución alternativa de conflictos y gestión ante entidades públicas. Soluciones rápidas y efectivas fuera del proceso judicial.</p>
+                    <h3>Derecho Administrativo y Conciliación</h3>
+                    <p>Te orientamos y defendemos en tus procedimientos ante entidades públicas, con enfoque técnico, estrategia, confidencialidad y soluciones efectivas. Tu procedimiento, nuestro compromiso.</p>
                     <ul class="service-list">
-                        <li><i class="fas fa-chevron-right"></i> Conciliación extrajudicial obligatoria y voluntaria</li>
-                        <li><i class="fas fa-chevron-right"></i> Mediación y negociación</li>
-                        <li><i class="fas fa-chevron-right"></i> Procedimientos administrativos</li>
-                        <li><i class="fas fa-chevron-right"></i> Recursos administrativos — Reconsideración, apelación</li>
-                        <li><i class="fas fa-chevron-right"></i> Licencias y permisos municipales</li>
-                        <li><i class="fas fa-chevron-right"></i> Contratación con el Estado</li>
-                        <li><i class="fas fa-chevron-right"></i> Defensa ante SUNAT, SUNARP y otras entidades</li>
+                        <li><i class="fas fa-chevron-right"></i> Procedimientos administrativos — Orientación y patrocinio ante entidades públicas</li>
+                        <li><i class="fas fa-chevron-right"></i> Silencio administrativo — Impulso y análisis de respuestas de la administración</li>
+                        <li><i class="fas fa-chevron-right"></i> Recursos administrativos — Reconsideración, apelación y revisión</li>
+                        <li><i class="fas fa-chevron-right"></i> Fiscalización y observaciones — Requerimientos y descargos ante SUNAT, SUNARP y otras entidades</li>
+                        <li><i class="fas fa-chevron-right"></i> Procesos sancionadores — Defensa ante multas y sanciones administrativas</li>
+                        <li><i class="fas fa-chevron-right"></i> Contratación con el Estado — Asesoría preliminar y acompañamiento técnico-legal</li>
+                        <li><i class="fas fa-chevron-right"></i> Licencias y autorizaciones — Gestión de permisos y trámites</li>
+                        <li><i class="fas fa-chevron-right"></i> Defensa y acompañamiento — Seguimiento integral de tu caso administrativo</li>
+                        <li><i class="fas fa-chevron-right"></i> Conciliación extrajudicial — Obligatoria y voluntaria</li>
+                        <li><i class="fas fa-chevron-right"></i> Mediación y negociación — Soluciones rápidas fuera del proceso judicial</li>
+                    </ul>
+                    <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 7: Derecho de Tránsito -->
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-traffic-light"></i>
+                    </div>
+                    <h3>Derecho de Tránsito</h3>
+                    <p>Defendemos tus derechos en la vía. Te asesoramos y representamos en procedimientos administrativos y sancionadores de tránsito, con un enfoque estratégico y efectivo. Tu movilidad también tiene derechos.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-chevron-right"></i> Papeletas y multas — Impugnaciones y recursos</li>
+                        <li><i class="fas fa-chevron-right"></i> Licencias de conducir — Trámites, recuperaciones y procedimientos</li>
+                        <li><i class="fas fa-chevron-right"></i> Infracciones y sanciones — Defensa en procedimientos</li>
+                        <li><i class="fas fa-chevron-right"></i> Accidentes de tránsito — Asesoría legal y representación</li>
+                        <li><i class="fas fa-chevron-right"></i> Inmovilización de vehículos — Levantamiento de medidas</li>
+                        <li><i class="fas fa-chevron-right"></i> Procedimientos ante el MTC y SAT — Gestión y seguimiento</li>
                     </ul>
                     <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -2556,6 +3018,8 @@
                 <button class="detail-tab" data-tab="familia">👨‍‍👧 Familia</button>
                 <button class="detail-tab" data-tab="migratorio">🌎 Migratorio</button>
                 <button class="detail-tab" data-tab="civil">⚖️ Civil</button>
+                <button class="detail-tab" data-tab="administrativo">🏛️ Administrativo</button>
+                <button class="detail-tab" data-tab="transito">🚦 Tránsito</button>
             </div>
 
             <!-- Registral Detail -->
@@ -2610,17 +3074,27 @@
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-building-circle-check"></i></div>
                         <h4>Constitución de Empresas</h4>
-                        <p>Formalización de EIRL, SRL, SAC, SA y otros tipos societarios. Te acompañamos desde la elección del tipo societario hasta la inscripción en Registros Públicos.</p>
+                        <p>Formalización de SAC, EIRL, SRL, SA y otros regímenes societarios. Te acompañamos desde la elección del tipo societario hasta la inscripción en Registros Públicos.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-file-signature"></i></div>
-                        <h4>Contratos Comerciales</h4>
-                        <p>Redacción, revisión y negociación de contratos. Protegemos tus intereses en cada acuerdo comercial con cláusulas claras y efectivas.</p>
+                        <h4>Contratos Empresariales</h4>
+                        <p>Elaboración, revisión y negociación de contratos. Protegemos tus intereses en cada acuerdo comercial con cláusulas claras y efectivas.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-people-group"></i></div>
+                        <h4>Gobierno Corporativo</h4>
+                        <p>Asesoría en juntas, estatutos y cumplimiento societario. Ordenamos la toma de decisiones y la estructura de tu empresa.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-handshake"></i></div>
+                        <h4>Fusiones y Adquisiciones</h4>
+                        <p>Reestructuración y expansión empresarial. Acompañamos operaciones de fusión, adquisición y reorganización con respaldo legal sólido.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-shield-halved"></i></div>
-                        <h4>Compliance Corporativo</h4>
-                        <p>Implementación de programas de cumplimiento normativo. Prevenimos riesgos legales y aseguramos que tu empresa opere dentro del marco legal.</p>
+                        <h4>Cumplimiento Normativo</h4>
+                        <p>Implementación de programas de cumplimiento y prevención de riesgos legales. Aseguramos que tu empresa opere dentro del marco legal.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-copyright"></i></div>
@@ -2635,7 +3109,7 @@
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-scale-balanced"></i></div>
                         <h4>Disolución y Liquidación</h4>
-                        <p>Proceso ordenado de cierre de sociedades. Cumplimiento de todos los requisitos legales para una disolución limpia.</p>
+                        <p>Cierre ordenado y seguro de sociedades. Cumplimiento de todos los requisitos legales para una disolución limpia.</p>
                     </div>
                 </div>
             </div>
@@ -2645,18 +3119,33 @@
                 <div class="detail-grid">
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-heart-crack"></i></div>
-                        <h4>Divorcios</h4>
-                        <p>Procesos de divorcio por mutuo acuerdo y por causal. Manejamos cada caso con sensibilidad, buscando la mejor solución para todas las partes.</p>
+                        <h4>Divorcio</h4>
+                        <p>Procesos de divorcio de mutuo acuerdo o contencioso. Manejamos cada caso con trato humano, buscando la mejor solución para todas las partes.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-child-reaching"></i></div>
-                        <h4>Tenencia y Visitas</h4>
-                        <p>Definición de tenencia de hijos menores y establecimiento de régimen de visitas. El bienestar de los niños es nuestra prioridad.</p>
+                        <h4>Tenencia y Régimen de Visitas</h4>
+                        <p>Definición de tenencia de hijos menores y establecimiento de visitas. Protegemos el bienestar de tus hijos.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-coins"></i></div>
-                        <h4>Pensión de Alimentos</h4>
-                        <p>Fijación, aumento, reducción y exoneración de pensión alimenticia. Garantizamos el derecho de los hijos a recibir alimentación adecuada.</p>
+                        <h4>Alimentos</h4>
+                        <p>Fijación, aumento, reducción y exoneración de pensión alimenticia para hijos, cónyuge o ascendientes.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-user-shield"></i></div>
+                        <h4>Patria Potestad</h4>
+                        <p>Reconocimiento, suspensión o pérdida de la patria potestad, con enfoque en el interés superior del niño.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-house-chimney-user"></i></div>
+                        <h4>Unión de Hecho</h4>
+                        <p>Reconocimiento y disolución de la unión de hecho, y protección de los derechos patrimoniales de la pareja.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-baby"></i></div>
+                        <h4>Filiación</h4>
+                        <p>Reconocimiento de hijos e impugnación de paternidad o maternidad. Defendemos el derecho a la identidad familiar.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-scroll"></i></div>
@@ -2664,14 +3153,19 @@
                         <p>Sucesiones intestadas y testadas. Declaratoria de herederos, inventario y partición de bienes. Ordenamos el patrimonio familiar.</p>
                     </div>
                     <div class="detail-item">
-                        <div class="detail-item-icon"><i class="fas fa-baby"></i></div>
-                        <h4>Filiación</h4>
-                        <p>Reconocimiento de hijos, impugnación de paternidad/maternidad. Defendemos el derecho a la identidad familiar.</p>
+                        <div class="detail-item-icon"><i class="fas fa-comments"></i></div>
+                        <h4>Conciliación Familiar</h4>
+                        <p>Soluciones rápidas y efectivas para resolver conflictos familiares sin llegar a un proceso largo y desgastante.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-shield-heart"></i></div>
                         <h4>Violencia Familiar</h4>
-                        <p>Medidas de protección, denuncias y seguimiento. Brindamos acompañamiento legal integral a víctimas de violencia familiar.</p>
+                        <p>Orientación legal, medidas de protección, denuncias y seguimiento. Acompañamiento integral a víctimas de violencia familiar.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-people-roof"></i></div>
+                        <h4>Otros Procesos de Familia</h4>
+                        <p>Tutelas, curatelas, adopción y otros procesos, tratados con sensibilidad y compromiso.</p>
                     </div>
                 </div>
             </div>
@@ -2687,7 +3181,7 @@
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-id-card"></i></div>
                         <h4>Cambio de Calidad Migratoria</h4>
-                        <p>Trámite de cambio de calidad: trabajador, independiente, estudiante, familiar, rentista y otros. Te ayudamos a cumplir tus metas.</p>
+                        <p>Trámite de cambio de calidad: trabajo, negocio, familiar y otros. Te ayudamos a cumplir tus metas.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-passport"></i></div>
@@ -2705,14 +3199,24 @@
                         <p>Orden y revisión de tu expediente migratorio. Aseguramos que toda tu documentación esté completa y en orden.</p>
                     </div>
                     <div class="detail-item">
-                        <div class="detail-item-icon"><i class="fas fa-stamp"></i></div>
-                        <h4>Apostilla</h4>
-                        <p>Apostilla nacional e internacional de documentos. Valida tus documentos para uso en el extranjero.</p>
+                        <div class="detail-item-icon"><i class="fas fa-pen-to-square"></i></div>
+                        <h4>Rectificaciones y Actualizaciones</h4>
+                        <p>Corrección de datos y actualización de información en tu registro migratorio.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-file-circle-exclamation"></i></div>
+                        <h4>Subsanación de Documentos</h4>
+                        <p>Solucionamos observaciones a tus trámites para que tu expediente avance sin demoras.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-fingerprint"></i></div>
                         <h4>Ficha Interpol</h4>
                         <p>Registro y cita de ficha Interpol. Gestión completa del proceso ante la PNP.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-stamp"></i></div>
+                        <h4>Apostilla</h4>
+                        <p>Apostilla nacional e internacional de documentos. Valida tus documentos para uso en el extranjero.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-scale-unbalanced"></i></div>
@@ -2754,6 +3258,93 @@
                         <div class="detail-item-icon"><i class="fas fa-landmark-dome"></i></div>
                         <h4>Procesos Cautelares</h4>
                         <p>Medidas cautelares: embargo, secuestro, anotación de demanda, retención. Protege tus derechos antes del proceso principal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Administrativo Detail -->
+            <div class="detail-content" id="tab-administrativo">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-file-lines"></i></div>
+                        <h4>Procedimientos Administrativos</h4>
+                        <p>Orientación y patrocinio ante entidades públicas. Te guiamos en cada etapa del procedimiento.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-clock"></i></div>
+                        <h4>Silencio Administrativo</h4>
+                        <p>Impulso y análisis de las respuestas (o la falta de ellas) de la administración, para hacer valer tus derechos.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-gavel"></i></div>
+                        <h4>Recursos Administrativos</h4>
+                        <p>Reconsideración, apelación y revisión de resoluciones que afecten tus intereses.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-magnifying-glass"></i></div>
+                        <h4>Fiscalización y Observaciones</h4>
+                        <p>Atención de requerimientos y descargos ante SUNAT, SUNARP y otras entidades.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-triangle-exclamation"></i></div>
+                        <h4>Procesos Sancionadores</h4>
+                        <p>Defensa técnica ante multas y sanciones administrativas.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-handshake"></i></div>
+                        <h4>Contratación con el Estado</h4>
+                        <p>Asesoría preliminar y acompañamiento técnico-legal en procesos de contratación pública.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-file-circle-check"></i></div>
+                        <h4>Licencias y Autorizaciones</h4>
+                        <p>Gestión y acompañamiento para permisos, licencias y trámites ante entidades públicas.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-users"></i></div>
+                        <h4>Defensa y Acompañamiento</h4>
+                        <p>Seguimiento integral de tu caso administrativo, de principio a fin.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-handshake-angle"></i></div>
+                        <h4>Conciliación y Mediación</h4>
+                        <p>Conciliación extrajudicial, mediación y negociación: soluciones rápidas fuera del proceso judicial.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tránsito Detail -->
+            <div class="detail-content" id="tab-transito">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-file-circle-check"></i></div>
+                        <h4>Papeletas y Multas</h4>
+                        <p>Impugnaciones y recursos contra papeletas y multas de tránsito.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-id-badge"></i></div>
+                        <h4>Licencias de Conducir</h4>
+                        <p>Trámites, recuperaciones y procedimientos relacionados con tu licencia de conducir.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-car-on"></i></div>
+                        <h4>Infracciones y Sanciones</h4>
+                        <p>Defensa en procedimientos sancionadores por infracciones de tránsito.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-car-burst"></i></div>
+                        <h4>Accidentes de Tránsito</h4>
+                        <p>Asesoría legal y representación en accidentes de tránsito.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-truck-ramp-box"></i></div>
+                        <h4>Inmovilización de Vehículos</h4>
+                        <p>Levantamiento de medidas de inmovilización y recuperación de tu vehículo.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-building-columns"></i></div>
+                        <h4>Procedimientos ante el MTC y SAT</h4>
+                        <p>Gestión y seguimiento de tus trámites ante el MTC y el SAT.</p>
                     </div>
                 </div>
             </div>
@@ -3102,7 +3693,7 @@
                     </div>
                     <div class="map-detail">
                         <i class="fas fa-search"></i>
-                        <span>Búscanos en Google Maps como: <strong>BLACK WOLF LEGAL CORP - CUSCO</strong></span>
+                        <span>Búscanos en Google Maps como: <strong><a href="https://maps.app.goo.gl/KEemcTtytkfRSFgW8" target="_blank" rel="noopener noreferrer" class="map-social-link">BLACK WOLF LEGAL CORP - CUSCO</a></strong></span>
                     </div>
                     <div class="map-detail">
                         <i class="fab fa-facebook"></i>
@@ -3114,12 +3705,13 @@
                     </div>
                     <div class="map-detail">
                         <i class="fab fa-tiktok"></i>
-                        <span>@blackwolfcorp</span>
+                        <span><a href="https://www.tiktok.com/@blackwolfcorp" target="_blank" rel="noopener noreferrer" class="map-social-link">@blackwolfcorp</a></span>
                     </div>
                 </div>
             </div>
             <div class="map-embed reveal">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3878.1234567890!2d-71.9674!3d-13.5320!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDMxJzU1LjIiUyA3McKwNTgnMDIuNiJX!5e0!3m2!1ses!2spe!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://maps.google.com/maps?q=-13.519633,-71.97835&hl=es&z=18&output=embed" title="Ubicación de Black Wolf Legal Corp en el Centro Comercial Cusco, Av. El Sol" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <a href="https://maps.app.goo.gl/KEemcTtytkfRSFgW8" target="_blank" rel="noopener noreferrer" class="map-open-btn"><i class="fas fa-location-dot"></i> Abrir en Google Maps</a>
             </div>
         </div>
     </section>
@@ -3136,7 +3728,7 @@
                 <div class="footer-social">
                     <a href="https://www.facebook.com/BLACKWOLFCORPORATION" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/black.wolf.corporation/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.tiktok.com/@blackwolfcorp" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     <a href="https://wa.me/51992708510" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     <a href="mailto:bwolfcorporation@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
@@ -3174,7 +3766,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Black Wolf Legal Corp. Todos los derechos reservados.</p>
+            <p>© 2026 Black Wolf Legal Corp. Todos los derechos reservados.</p>
             <div class="footer-bottom-links">
                 <a href="#">Política de Privacidad</a>
                 <a href="#">Términos y Condiciones</a>
@@ -3220,16 +3812,49 @@
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
 
+        // Accesibilidad del boton y fondo oscuro detras del menu
+        hamburger.setAttribute('role', 'button');
+        hamburger.setAttribute('tabindex', '0');
+        hamburger.setAttribute('aria-label', 'Abrir menú');
+        hamburger.setAttribute('aria-controls', 'navLinks');
+        hamburger.setAttribute('aria-expanded', 'false');
+
+        const navBackdrop = document.createElement('div');
+        navBackdrop.className = 'nav-backdrop';
+        document.body.appendChild(navBackdrop);
+
+        function setMenu(open) {
+            hamburger.classList.toggle('active', open);
+            navLinks.classList.toggle('active', open);
+            navBackdrop.classList.toggle('active', open);
+            document.body.classList.toggle('menu-open', open);
+            hamburger.setAttribute('aria-expanded', String(open));
+            hamburger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        }
+
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            setMenu(!navLinks.classList.contains('active'));
+        });
+
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                hamburger.click();
+            }
+        });
+
+        navBackdrop.addEventListener('click', () => setMenu(false));
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setMenu(false);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1100) setMenu(false);
         });
 
         navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
+            link.addEventListener('click', () => setMenu(false));
         });
 
         // Detail tabs
@@ -3243,6 +3868,7 @@
 
                 tab.classList.add('active');
                 document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+                if (tab.scrollIntoView) { tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); }
             });
         });
 
