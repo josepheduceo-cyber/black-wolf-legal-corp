@@ -706,31 +706,8 @@
             font-size: 0.9rem;
         }
 
-        .about-experience-badge {
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            background: var(--gold);
-            color: var(--navy);
-            padding: 1.5rem 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-        }
 
-        .about-experience-badge .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            line-height: 1;
-        }
 
-        .about-experience-badge .text {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
 
         .about-content h3 {
             font-family: 'Playfair Display', serif;
@@ -2380,11 +2357,6 @@
             .footer-bottom { justify-content: center; }
             .footer-bottom-links { flex-wrap: wrap; justify-content: center; }
 
-            .about-experience-badge {
-                right: 12px;
-                bottom: -18px;
-                padding: 1rem 1.4rem;
-            }
 
             .about-image-wrapper { margin-bottom: 1.5rem; }
             .about-image-content { padding: 2rem 1.25rem; }
@@ -2627,26 +2599,6 @@
         @keyframes lx-twinkle{0%,100%{filter:brightness(1);transform:scale(1);}50%{filter:brightness(1.35);transform:scale(1.18);}}
         @media (max-width:768px){.lx-fx i:nth-child(n+5){display:none;}.lx-fx i.lx-big{display:none;}}
         @media (prefers-reduced-motion:reduce){.lx-fx i,.lx-fx i.lx-big,.section-header .section-title::after,.testimonial-stars i,.lx-ring{animation:none!important;}.lx-progress{transition:none;}}
-
-        /* ===== AJUSTES RESPONSIVE: insignia de experiencia sin tapar texto ===== */
-        @media (max-width: 768px) {
-            .about-image-wrapper { display: flex; flex-direction: column; }
-            .about-image { min-height: 0; }
-            .about-image-content { padding: 2rem 1.25rem 3.75rem; }
-            .about-experience-badge {
-                position: relative;
-                right: auto; bottom: auto;
-                align-self: flex-end;
-                margin: -2.25rem 12px 0 0;
-                padding: 0.9rem 1.3rem;
-                z-index: 2;
-            }
-            .about-experience-badge .number { font-size: 2rem; }
-        }
-        @media (max-width: 380px) {
-            .about-experience-badge { margin-right: 8px; padding: 0.75rem 1rem; }
-            .about-image-content h3 { font-size: 1.4rem; }
-        }
     </style>
 </head>
 <body>
@@ -2848,10 +2800,6 @@
                             <h3>Black Wolf Legal Corp</h3>
                             <p>Tu patrimonio, nuestra prioridad. Tu tranquilidad, nuestro compromiso.</p>
                         </div>
-                    </div>
-                    <div class="about-experience-badge">
-                        <div class="number">10+</div>
-                        <div class="text">Años de<br>Experiencia</div>
                     </div>
                 </div>
                 <div class="about-content reveal">
