@@ -2607,6 +2607,26 @@
 
             .reveal { opacity: 1; transform: none; }
         }
+
+        /* ===== EFECTOS VISUALES JURÍDICOS ===== */
+        .lx-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:100000;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light),var(--gold));box-shadow:0 0 10px rgba(201,168,76,.7);pointer-events:none;}
+        .lx-has-fx{position:relative;isolation:isolate;}
+        .lx-fx{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none;}
+        .lx-fx i{position:absolute;color:var(--gold);opacity:.09;animation:lx-float 14s ease-in-out infinite;will-change:transform;}
+        .lx-fx i.lx-big{opacity:.05;animation:lx-sway 10s ease-in-out infinite;transform-origin:50% 8%;}
+        @keyframes lx-float{0%,100%{transform:translateY(0) rotate(-6deg);}50%{transform:translateY(-26px) rotate(7deg);}}
+        @keyframes lx-sway{0%,100%{transform:rotate(-5deg);}50%{transform:rotate(5deg);}}
+        .section-header .section-title::after{content:"\f24e";font-family:"Font Awesome 6 Free";font-weight:900;display:block;font-size:1.15rem;color:var(--gold);margin-top:.7rem;transform-origin:50% 0;animation:lx-sway 5s ease-in-out infinite;text-shadow:0 0 14px rgba(201,168,76,.45);}
+        .service-card:hover .service-icon i,.detail-item:hover .detail-item-icon i,.why-card:hover i{animation:lx-strike .7s ease;}
+        @keyframes lx-strike{0%{transform:rotate(0);}25%{transform:rotate(-22deg) scale(1.15);}50%{transform:rotate(14deg) scale(1.2);}75%{transform:rotate(-6deg);}100%{transform:rotate(0);}}
+        .service-card::before,.detail-item::before{pointer-events:none;}
+        .lx-ring{position:fixed;width:12px;height:12px;margin:-6px 0 0 -6px;border:2px solid var(--gold);border-radius:50%;z-index:100000;pointer-events:none;animation:lx-ring .7s ease-out forwards;}
+        @keyframes lx-ring{to{transform:scale(7);opacity:0;}}
+        .testimonial-stars i{animation:lx-twinkle 2.4s ease-in-out infinite;}
+        .testimonial-stars i:nth-child(2){animation-delay:.2s}.testimonial-stars i:nth-child(3){animation-delay:.4s}.testimonial-stars i:nth-child(4){animation-delay:.6s}.testimonial-stars i:nth-child(5){animation-delay:.8s}
+        @keyframes lx-twinkle{0%,100%{filter:brightness(1);transform:scale(1);}50%{filter:brightness(1.35);transform:scale(1.18);}}
+        @media (max-width:768px){.lx-fx i:nth-child(n+5){display:none;}.lx-fx i.lx-big{display:none;}}
+        @media (prefers-reduced-motion:reduce){.lx-fx i,.lx-fx i.lx-big,.section-header .section-title::after,.testimonial-stars i,.lx-ring{animation:none!important;}.lx-progress{transition:none;}}
     </style>
 </head>
 <body>
@@ -2951,12 +2971,17 @@
                     <h3>Derecho Civil</h3>
                     <p>Defendemos tus derechos civiles con estrategia y dedicación. Desde obligaciones contractuales hasta responsabilidad civil.</p>
                     <ul class="service-list">
-                        <li><i class="fas fa-chevron-right"></i> Obligaciones y contratos</li>
-                        <li><i class="fas fa-chevron-right"></i> Responsabilidad civil extracontractual</li>
-                        <li><i class="fas fa-chevron-right"></i> Derechos reales — Propiedad, posesión, usufructo</li>
+                        <li><i class="fas fa-chevron-right"></i> Obligaciones y contratos — cumplimiento, resolución, cláusulas</li>
+                        <li><i class="fas fa-chevron-right"></i> Compraventa y contratos inmobiliarios</li>
+                        <li><i class="fas fa-chevron-right"></i> Arrendamiento y desalojo</li>
+                        <li><i class="fas fa-chevron-right"></i> Responsabilidad civil e indemnizaciones por daños</li>
+                        <li><i class="fas fa-chevron-right"></i> Derechos reales — Propiedad, posesión, usufructo, servidumbre</li>
                         <li><i class="fas fa-chevron-right"></i> Prescripción adquisitiva de dominio</li>
-                        <li><i class="fas fa-chevron-right"></i> Indemnizaciones y daños</li>
-                        <li><i class="fas fa-chevron-right"></i> Procesos civiles y cautelares</li>
+                        <li><i class="fas fa-chevron-right"></i> Reivindicación y defensa de la posesión</li>
+                        <li><i class="fas fa-chevron-right"></i> Nulidad de actos jurídicos</li>
+                        <li><i class="fas fa-chevron-right"></i> Copropiedad y partición de bienes</li>
+                        <li><i class="fas fa-chevron-right"></i> Cobranza judicial y ejecución de garantías</li>
+                        <li><i class="fas fa-chevron-right"></i> Procesos cautelares y recursos de apelación y casación</li>
                     </ul>
                     <a href="#contacto" class="service-link">Consultar ahora <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -3065,17 +3090,17 @@
                         <h4>Apelación Registral</h4>
                         <p>Defensa técnica ante observaciones del registrador. Impugnamos calificaciones negativas y protegemos tus derechos registrales.</p>
                     </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-building-circle-check"></i></div>
+                        <h4>Constitución de Empresas</h4>
+                        <p>Formalización de SAC, EIRL, SRL, SA y otros regímenes societarios. Te acompañamos desde la elección del tipo societario hasta la inscripción en Registros Públicos.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Corporativo Detail -->
             <div class="detail-content" id="tab-corporativo">
                 <div class="detail-grid">
-                    <div class="detail-item">
-                        <div class="detail-item-icon"><i class="fas fa-building-circle-check"></i></div>
-                        <h4>Constitución de Empresas</h4>
-                        <p>Formalización de SAC, EIRL, SRL, SA y otros regímenes societarios. Te acompañamos desde la elección del tipo societario hasta la inscripción en Registros Públicos.</p>
-                    </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-file-signature"></i></div>
                         <h4>Contratos Empresariales</h4>
@@ -3232,32 +3257,82 @@
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-file-contract"></i></div>
                         <h4>Obligaciones y Contratos</h4>
-                        <p>Asesoría en cumplimiento, incumplimiento y resolución de obligaciones contractuales. Defensa de tus derechos contractuales.</p>
+                        <p>Asesoría integral en el cumplimiento, incumplimiento, resolución y rescisión de contratos civiles. Redactamos y revisamos contratos, cláusulas penales, intereses y plazos, y te representamos para exigir el cumplimiento o la indemnización correspondiente.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-file-signature"></i></div>
+                        <h4>Compraventa y Contratos Inmobiliarios</h4>
+                        <p>Elaboración y revisión de minutas, promesas de venta, arras y contratos de compraventa de inmuebles y bienes muebles. Verificamos la situación legal del bien, cargas y gravámenes antes de que firmes, y te defendemos ante evicción o vicios ocultos.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-key"></i></div>
+                        <h4>Arrendamiento y Desalojo</h4>
+                        <p>Contratos de arrendamiento que protegen al propietario y al inquilino. Gestionamos desalojos por vencimiento de contrato, falta de pago u ocupación precaria, incluida la cláusula de allanamiento futuro, y la recuperación de tu inmueble por la vía judicial.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-car-burst"></i></div>
                         <h4>Responsabilidad Civil</h4>
-                        <p>Reclamación de indemnizaciones por daños y perjuicios. Accidentes, negligencia profesional y responsabilidad extracontractual.</p>
+                        <p>Reclamación de indemnizaciones por daño emergente, lucro cesante, daño moral y daño a la persona. Atendemos responsabilidad contractual y extracontractual: accidentes de tránsito, negligencia profesional, daños a la propiedad y mala praxis.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-house-chimney"></i></div>
                         <h4>Derechos Reales</h4>
-                        <p>Propiedad, posesión, usufructo, servidumbre y otros derechos reales. Protección de tus derechos sobre bienes inmuebles y muebles.</p>
+                        <p>Defensa y regularización de propiedad, posesión, usufructo, uso, habitación, servidumbres y derecho de superficie. Protegemos tu patrimonio sobre bienes inmuebles y muebles con estrategia preventiva y, si es necesario, judicial.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-clock-rotate-left"></i></div>
                         <h4>Prescripción Adquisitiva</h4>
-                        <p>Procesos de prescripción adquisitiva de dominio. Regulariza la propiedad de inmuebles que has poseído pacíficamente.</p>
+                        <p>Procesos de prescripción adquisitiva de dominio por la vía judicial o notarial. Evaluamos tu posesión (continua, pacífica y pública, como propietario), reunimos las pruebas y gestionamos la inscripción para que seas reconocido formalmente como propietario.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h4>Reivindicación y Defensa de la Posesión</h4>
+                        <p>Acciones reivindicatorias, interdictos y acciones posesorias para recuperar o proteger tu bien frente a invasiones, perturbaciones o despojo. También resolvemos conflictos de mejor derecho de propiedad y de linderos entre vecinos.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-ban"></i></div>
+                        <h4>Nulidad y Anulabilidad de Actos Jurídicos</h4>
+                        <p>Demandas para dejar sin efecto contratos y actos viciados por simulación, fraude, falta de formalidad, error, dolo o violencia. Defendemos tu patrimonio frente a transferencias fraudulentas y actos realizados sin tu consentimiento válido.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-users"></i></div>
+                        <h4>Copropiedad y Partición de Bienes</h4>
+                        <p>División y partición de bienes en copropiedad, ya sea de manera extrajudicial o judicial. Te ayudamos a poner fin a la indivisión, valorizar los bienes y acordar una distribución justa entre los copropietarios.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-hand-holding-dollar"></i></div>
                         <h4>Cobranza Judicial</h4>
-                        <p>Procesos de cobro de deudas, títulos valores y obligaciones dinerarias. Recuperación efectiva de créditos.</p>
+                        <p>Recuperación de créditos mediante proceso único de ejecución (letras, pagarés, facturas conformadas, actas de conciliación y garantías), proceso monitorio y proceso de conocimiento. Estrategia de cobro desde la carta notarial hasta el remate.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-lock"></i></div>
+                        <h4>Garantías y Ejecución de Hipotecas</h4>
+                        <p>Constitución, revisión y ejecución de hipotecas, garantías mobiliarias, prendas y fianzas. Asesoramos tanto al acreedor que quiere asegurar su crédito como al deudor que necesita defender su bien en un proceso de ejecución.</p>
                     </div>
                     <div class="detail-item">
                         <div class="detail-item-icon"><i class="fas fa-landmark-dome"></i></div>
                         <h4>Procesos Cautelares</h4>
-                        <p>Medidas cautelares: embargo, secuestro, anotación de demanda, retención. Protege tus derechos antes del proceso principal.</p>
+                        <p>Medidas cautelares para asegurar tus derechos antes o durante el proceso: embargo en forma de inscripción, secuestro, retención, anotación de demanda, medida innovativa y de no innovar. Evitamos que el patrimonio del deudor desaparezca antes de la sentencia.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-stamp"></i></div>
+                        <h4>Otorgamiento de Escritura Pública</h4>
+                        <p>Procesos para obligar a formalizar una compraventa u otro acto cuando la otra parte se niega a firmar la escritura pública. Convertimos tu contrato privado en un título que puedas inscribir en Registros Públicos.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-handshake"></i></div>
+                        <h4>Transacciones y Reconocimiento de Deuda</h4>
+                        <p>Acuerdos extrajudiciales y judiciales que ponen fin a un conflicto de forma rápida y con respaldo legal. Elaboramos transacciones, reconocimientos de deuda y cronogramas de pago con garantías que se pueden ejecutar.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-scale-balanced"></i></div>
+                        <h4>Enriquecimiento sin Causa y Pago Indebido</h4>
+                        <p>Acciones para recuperar lo que se pagó por error o lo que otra persona obtuvo a tu costa sin justificación legal. Reclamamos la devolución del monto, con intereses cuando corresponde, y evitamos pérdidas injustas para tu patrimonio.</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-item-icon"><i class="fas fa-gavel"></i></div>
+                        <h4>Apelación y Casación Civil</h4>
+                        <p>Defensa en segunda instancia y ante la Corte Suprema. Preparamos apelaciones, recursos de casación y quejas para revertir sentencias desfavorables, además de la contestación de demandas y la defensa del demandado en todo tipo de proceso civil.</p>
                     </div>
                 </div>
             </div>
@@ -3447,61 +3522,97 @@
                 <h2 class="section-title">Lo que dicen nuestros clientes</h2>
                 <p class="section-subtitle">La satisfacción de nuestros clientes es nuestro mayor logro.</p>
             </div>
+            <div class="video-testimonial reveal" style="max-width:340px;margin:0 auto 3.5rem;text-align:center;">
+                <h3 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.4rem;margin-bottom:1rem;"><i class="fab fa-tiktok" style="color:var(--gold);"></i> Testimonio en video</h3>
+                <a href="https://www.tiktok.com/@blackwolfcorp/video/7678466630485069077" target="_blank" rel="noopener noreferrer" aria-label="Ver testimonio en video de Florian Rölke en TikTok" style="position:relative;display:block;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);background:#000;">
+                    <img src="assets/testimonio.png" alt="Testimonio en video de Florian Rölke, cliente satisfecho de Black Wolf Legal Corp" loading="lazy" style="display:block;width:100%;height:auto;">
+                    <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(to top,rgba(10,22,40,.45),rgba(10,22,40,0) 50%);">
+                        <span style="width:76px;height:76px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 8px 24px rgba(0,0,0,.4);"><i class="fas fa-play" style="margin-left:5px;"></i></span>
+                    </span>
+                </a>
+                <a href="https://www.tiktok.com/@blackwolfcorp/video/7678466630485069077" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:.9rem;color:var(--gray-500);font-size:.9rem;text-decoration:underline;">Ver video en TikTok</a>
+            </div>
+            <div class="google-rating-bar" style="display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap;margin:-1rem 0 2.5rem;color:var(--navy);">
+                <span style="font-size:2rem;font-weight:700;font-family:'Playfair Display',serif;">4,8</span>
+                <span style="color:var(--gold);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                <span style="color:var(--gray-500);font-size:.9rem;">6 reseñas en Google</span>
+            </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card reveal reveal-delay-1">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">Excelente servicio en el saneamiento registral de mi propiedad. El equipo de Black Wolf fue muy profesional y resolvió todo en el tiempo estimado. Totalmente recomendados.</p>
+                    <p class="testimonial-text">Excelente atención y profesionales de primera, mi negocio está orientado a capacitaciones referentes a temas de derecho y a temas de conciliación Extrajudicial, me prepararon un plan de marketing y un estudio de mercado, que me ayudó a tomar decisiones informadas y seguras 💯 …</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">MR</div>
+                        <div class="testimonial-avatar">AJ</div>
                         <div>
-                            <div class="testimonial-name">María Rodríguez</div>
-                            <div class="testimonial-role">Propietaria — Cusco</div>
+                            <div class="testimonial-name">ALEXIS JULIO ALVAREZ CORNEJO</div>
+                            <div class="testimonial-role">Reseña de Google</div>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card reveal reveal-delay-2">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">Me ayudaron con todos los trámites migratorios para mi familia. La asesoría fue personalizada y nos orientaron en cada paso. Ahora tenemos nuestra situación regularizada.</p>
+                    <p class="testimonial-text">Realmente el valor agregado de esta empresa , es que es un servicio personalizado, te brinda el tiempo la paciencia que en otros lados la verdad no encontrarás 💪 …</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">CL</div>
+                        <div class="testimonial-avatar">CC</div>
                         <div>
-                            <div class="testimonial-name">Carlos López</div>
-                            <div class="testimonial-role">Cliente Migratorio</div>
+                            <div class="testimonial-name">CARRASCO CLASSIC</div>
+                            <div class="testimonial-role">Reseña de Google</div>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card reveal reveal-delay-3">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">Constituyeron mi empresa de forma rápida y eficiente. La asesoría corporativa es de primer nivel. Ahora son mis abogados de confianza para todos los temas legales de mi negocio.</p>
+                    <p class="testimonial-text">Excelente servicio 👌</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">JP</div>
+                        <div class="testimonial-avatar">JE</div>
                         <div>
-                            <div class="testimonial-name">Jorge Paredes</div>
-                            <div class="testimonial-role">Empresario — Cusco</div>
+                            <div class="testimonial-name">Joseph Edú Torreblanca Paz</div>
+                            <div class="testimonial-role">Reseña de Google</div>
                         </div>
                     </div>
                 </div>
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Necesitaba cambiar mi estatus migratorio y, debido a una situación complicada, esperaba observaciones que finalmente no recibí. Mi carnet de extranjería fue aprobado a la primera. …</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">FR</div>
+                        <div>
+                            <div class="testimonial-name">Florian Rolke</div>
+                            <div class="testimonial-role">Reseña de Google</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Buen asesoramiento</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AE</div>
+                        <div>
+                            <div class="testimonial-name">Andrea Emperatriz Chávez Soto</div>
+                            <div class="testimonial-role">Reseña de Google</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-3">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text" style="font-style:normal;color:var(--gray-500);">Calificó con 5 estrellas.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">CD</div>
+                        <div>
+                            <div class="testimonial-name">Centro de Conciliacion A1</div>
+                            <div class="testimonial-role">Reseña de Google</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem;">
+                <a href="https://maps.app.goo.gl/E4PjEpDUTwd5EUkQA" target="_blank" rel="noopener" class="btn-dark"><i class="fab fa-google"></i> Ver todas las reseñas en Google</a>
             </div>
         </div>
     </section>
@@ -3584,20 +3695,20 @@
                     <div class="contact-methods">
                         <div class="contact-method">
                             <div class="contact-method-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-method-text">
-                                <div class="label">WhatsApp / Área Legal</div>
-                                <div class="value"><a href="https://wa.me/51992708510">992 708 510</a></div>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-method-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div class="contact-method-text">
                                 <div class="label">Corporativo</div>
                                 <div class="value"><a href="tel:+51976365094">976 365 094</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-method-text">
+                                <div class="label">WhatsApp / Área Legal</div>
+                                <div class="value"><a href="https://wa.me/51992708510">992 708 510</a></div>
                             </div>
                         </div>
                         <div class="contact-method">
@@ -3635,19 +3746,19 @@
                         <div class="form-grid">
                             <div class="form-group">
                                 <label>Nombre completo *</label>
-                                <input type="text" placeholder="Tu nombre" required>
+                                <input type="text" id="cf-nombre" placeholder="Tu nombre" required>
                             </div>
                             <div class="form-group">
                                 <label>Teléfono *</label>
-                                <input type="tel" placeholder="999 999 999" required>
+                                <input type="tel" id="cf-telefono" placeholder="999 999 999" required>
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" placeholder="tu@email.com">
+                                <input type="email" id="cf-email" placeholder="tu@email.com">
                             </div>
                             <div class="form-group">
                                 <label>Área de interés *</label>
-                                <select required>
+                                <select id="cf-area" required>
                                     <option value="">Seleccionar...</option>
                                     <option>Derecho Registral</option>
                                     <option>Derecho Corporativo</option>
@@ -3661,7 +3772,7 @@
                             </div>
                             <div class="form-group full">
                                 <label>Describe tu caso *</label>
-                                <textarea placeholder="Cuéntanos brevemente sobre tu situación legal..." required></textarea>
+                                <textarea id="cf-caso" placeholder="Cuéntanos brevemente sobre tu situación legal..." required></textarea>
                             </div>
                             <div class="form-group full">
                                 <button type="submit" class="form-submit">
@@ -3901,10 +4012,45 @@
             particlesContainer.appendChild(particle);
         }
 
-        // Form submission
+        // Form submission -> WhatsApp (3 números)
+        const WA_NUMBERS = [
+            { label: 'WhatsApp / Área Legal', num: '51992708510' },
+            { label: 'Corporativo', num: '51976365094' },
+            { label: 'Consultas', num: '51915061082' }
+        ];
+
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('¡Gracias por contactarnos! Nos comunicaremos contigo en menos de 24 horas.');
+            const v = id => document.getElementById(id).value.trim();
+            const msg =
+                '*NUEVA CONSULTA - Black Wolf Legal Corp*\n\n' +
+                '*Nombre:* ' + v('cf-nombre') + '\n' +
+                '*Teléfono:* ' + v('cf-telefono') + '\n' +
+                '*Email:* ' + (v('cf-email') || 'No indicado') + '\n' +
+                '*Área de interés:* ' + v('cf-area') + '\n' +
+                '*Caso:* ' + v('cf-caso');
+            const urls = WA_NUMBERS.map(n => 'https://wa.me/' + n.num + '?text=' + encodeURIComponent(msg));
+
+            // 1) Abre el primer WhatsApp de inmediato (permitido por el navegador al hacer clic)
+            window.open(urls[0], '_blank');
+
+            // 2) Panel para enviar el mismo mensaje a los otros 2 números
+            let box = document.getElementById('wa-multi');
+            if (box) box.remove();
+            box = document.createElement('div');
+            box.id = 'wa-multi';
+            box.style.cssText = 'position:fixed;inset:0;background:rgba(10,22,40,.75);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;';
+            box.innerHTML =
+                '<div style="background:#fff;border-radius:16px;max-width:420px;width:100%;padding:28px;text-align:center;font-family:inherit;">' +
+                '<h3 style="margin:0 0 8px;color:#0a1628;">¡Mensaje preparado!</h3>' +
+                '<p style="color:#555;margin:0 0 18px;font-size:.95rem;">Se abrió WhatsApp con tu consulta. Para que también llegue a las otras líneas, toca cada botón y presiona <b>Enviar</b>:</p>' +
+                WA_NUMBERS.slice(1).map((n, i) =>
+                    '<a href="' + urls[i + 1] + '" target="_blank" rel="noopener" style="display:block;margin:8px 0;padding:12px;border-radius:10px;background:#25D366;color:#fff;text-decoration:none;font-weight:600;"><i class="fab fa-whatsapp"></i> ' + n.label + ' · ' + n.num.slice(2) + '</a>'
+                ).join('') +
+                '<button type="button" id="wa-multi-close" style="margin-top:14px;background:none;border:0;color:#0a1628;cursor:pointer;text-decoration:underline;">Cerrar</button>' +
+                '</div>';
+            document.body.appendChild(box);
+            document.getElementById('wa-multi-close').onclick = () => box.remove();
             e.target.reset();
         });
 
@@ -3940,6 +4086,45 @@
             probe.onerror = function () { j++; if (j < exts.length) { probe.src = 'assets/logo.' + exts[j]; } };
             probe.src = 'assets/logo.' + exts[0];
         })();
+    </script>
+    <script>
+    // ===== EFECTOS VISUALES JURÍDICOS =====
+    (function () {
+        // Barra de progreso dorada
+        var bar = document.createElement('div'); bar.className = 'lx-progress'; document.body.appendChild(bar);
+        function prog() { var h = document.documentElement; var m = h.scrollHeight - h.clientHeight; bar.style.width = (m > 0 ? (h.scrollTop / m) * 100 : 0) + '%'; }
+        window.addEventListener('scroll', prog, { passive: true }); prog();
+
+        // Íconos jurídicos flotantes en cada sección
+        var icons = ['fa-scale-balanced', 'fa-gavel', 'fa-landmark', 'fa-file-contract', 'fa-stamp', 'fa-scroll', 'fa-book', 'fa-handshake'];
+        var spots = [[3, 8, 44], [90, 14, 52], [6, 38, 34], [92, 46, 40], [4, 68, 50], [88, 78, 36], [10, 90, 30], [94, 92, 44]];
+        var sels = ['.hero', '.about', '.services', '.detailed-services', '.why-us', '.process', '.testimonials', '.team', '.cta-section', '.contact'];
+        sels.forEach(function (sel, si) {
+            var sec = document.querySelector(sel); if (!sec) return;
+            sec.classList.add('lx-has-fx');
+            var box = document.createElement('div'); box.className = 'lx-fx'; box.setAttribute('aria-hidden', 'true');
+            spots.forEach(function (sp, k) {
+                var el = document.createElement('i');
+                el.className = 'fas ' + icons[(k + si) % icons.length];
+                el.style.left = sp[0] + '%'; el.style.top = sp[1] + '%'; el.style.fontSize = sp[2] + 'px';
+                el.style.animationDelay = (-(k * 1.7 + si)) + 's'; el.style.animationDuration = (11 + (k % 4) * 2) + 's';
+                box.appendChild(el);
+            });
+            if (sel === '.hero' || sel === '.cta-section' || sel === '.why-us') {
+                var big = document.createElement('i'); big.className = 'fas fa-scale-balanced lx-big';
+                big.style.right = '3%'; big.style.top = '4%'; big.style.fontSize = 'min(34vw,360px)'; box.appendChild(big);
+            }
+            sec.insertBefore(box, sec.firstChild);
+        });
+
+        // Anillo dorado (golpe de mazo) al hacer clic en botones
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('button, a[class*="btn"], .service-link, .detail-tab, .form-submit')) return;
+            var r = document.createElement('span'); r.className = 'lx-ring';
+            r.style.left = e.clientX + 'px'; r.style.top = e.clientY + 'px';
+            document.body.appendChild(r); setTimeout(function () { r.remove(); }, 750);
+        });
+    })();
     </script>
 </body>
 </html>
